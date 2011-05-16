@@ -1,0 +1,9 @@
+!SESSION 2011-05-16 15:44:25.712 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_CA
+Command-line arguments:  -os linux -ws gtk -arch x86 -data /home/georgec/workplace/Prdc-Android
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2011-05-16 15:47:19.698
+!MESSAGE Failed to load properties file for project 'Prdc2011'
