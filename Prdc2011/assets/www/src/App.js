@@ -15,9 +15,9 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 '<tpl for=".">',
                     '<div class="session">',
                         '<div class="session-title">',
-                            '<h2>{title}</h2>',
+                            '<h2>{Title}</h2>',
                         '</div>',
-                        '<p class="session_description">{description}</p>',
+                        '<p class="session_description">{Abstract}</p>',
                     '</div>',
                 '</tpl>'
                 ]
@@ -58,12 +58,11 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                     url: 'http://prairiedevcon.com/Sessions',
                     method: "GET",
                     params: {},
-                    success: function(res, request) {
-                               alert('success: ',res.responseText); 
+                    success: function(res, request) {                
                                if (res) {
- 
-                                        result = Ext.util.JSON.decode(res.responseText);
-                                        alert(result);                   
+                                        
+                                        result = Ext.util.JSON.decode(res.responseText);   
+                                        sessions.update(result);             
                                     }
                                     else {
                                         alert('There was an error retrieving the data.');
