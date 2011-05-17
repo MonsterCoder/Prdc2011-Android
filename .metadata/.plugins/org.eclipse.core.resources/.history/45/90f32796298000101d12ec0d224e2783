@@ -24,8 +24,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             });
             
             speakers = new Ext.Component({
-                title: 'Speakers',   
-                scroll: 'vertical',
+                title: 'Speakers',scroll: 'vertical',
                 tpl: [
                 '<tpl for=".">',
                     '<div class="speaker">',
@@ -64,6 +63,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 };
                 
                 Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
+                
                 function makeAjaxRequest() {            
                   Ext.Ajax.request({
                     url: 'http://prairiedevcon.com/Sessions',
@@ -83,11 +83,11 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                                  alert('Failed: ', res);
                                 }
                             });
-                        }
+                };
                         
                 makeAjaxRequest();
                 
-               function makeSpeakersRequest() {            
+           	  function makeSpeakersRequest() {            
                   Ext.Ajax.request({
                     url: 'http://prairiedevcon.com/Speakers',
                     method: "GET",
@@ -106,16 +106,8 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                                  alert('Failed: ', res);
                                 }
                             });
-                        }
-           	makeSpeakersRequest();
-                  
-                  
-                Ext.util.JSONP.request({				
-                            url: 'http://prairiedevcon.com/Sessions.json/',				
-                            callbackKey: 'callback',
-                            callback: function(data) {
-                                alert("callback");
-                            }
+                }
+  
                 });
             }
         

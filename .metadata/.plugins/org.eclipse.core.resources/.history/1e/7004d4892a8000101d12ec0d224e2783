@@ -24,15 +24,14 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             });
             
             speakers = new Ext.Component({
-                title: 'Speakers',   
-                scroll: 'vertical',
+                title: 'Speakers',scroll: 'vertical',
                 tpl: [
                 '<tpl for=".">',
-                    '<div class="speaker">',
-                        '<div class="speaker-name">',
-                            '<h2>{FirstName} {LastName}</h2>',
+                    '<div class="session">',
+                        '<div class="session-title">',
+                            '<h2>{Title}</h2>',
                         '</div>',
-                        '<p class="speaker_bio">{Bio}</p>',
+                        '<p class="session_description">{Abstract}</p>',
                     '</div>',
                 '</tpl>'
                 ]
@@ -53,15 +52,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             this.items = [sessions, speakers, tweets, locations, about];
             
             refresh = function() {
-                var session1 = {
-                    title: "Dummy session 1",
-                    description: "A session used to demostrate the scencha framework"
-                };
-                
-                var session2 = {
-                    title: "Dummy session 1",
-                    description: "A session used to demostrate the scencha framework"
-                };
+  
                 
                 Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
                 function makeAjaxRequest() {            
@@ -83,39 +74,9 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                                  alert('Failed: ', res);
                                 }
                             });
-                        }
+                        };
                         
-                makeAjaxRequest();
-                
-               function makeSpeakersRequest() {            
-                  Ext.Ajax.request({
-                    url: 'http://prairiedevcon.com/Speakers',
-                    method: "GET",
-                    params: {},
-                    success: function(res, request) {                
-                               if (res) {
-                                        
-                                        result = Ext.util.JSON.decode(res.responseText);   
-                                        speakers.update(result);             
-                                    }
-                                    else {
-                                        alert('There was an error retrieving the data.');
-                                    }
-                                },
-                   failure: function(res, request){
-                                 alert('Failed: ', res);
-                                }
-                            });
-                        }
-           	makeSpeakersRequest();
-                  
-                  
-                Ext.util.JSONP.request({				
-                            url: 'http://prairiedevcon.com/Sessions.json/',				
-                            callbackKey: 'callback',
-                            callback: function(data) {
-                                alert("callback");
-                            }
+       
                 });
             }
         

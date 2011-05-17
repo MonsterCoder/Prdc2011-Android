@@ -89,7 +89,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 
                function makeSpeakersRequest() {            
                   Ext.Ajax.request({
-                    url: 'http://prairiedevcon.com/Speakers',
+                    url: 'http://prairiedevcon.com/Sessions',
                     method: "GET",
                     params: {},
                     success: function(res, request) {                

@@ -28,11 +28,11 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 scroll: 'vertical',
                 tpl: [
                 '<tpl for=".">',
-                    '<div class="speaker">',
-                        '<div class="speaker-name">',
-                            '<h2>{FirstName} {LastName}</h2>',
+                    '<div class="session">',
+                        '<div class="session-title">',
+                            '<h2>{Title}</h2>',
                         '</div>',
-                        '<p class="speaker_bio">{Bio}</p>',
+                        '<p class="session_description">{Abstract}</p>',
                     '</div>',
                 '</tpl>'
                 ]
@@ -89,7 +89,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 
                function makeSpeakersRequest() {            
                   Ext.Ajax.request({
-                    url: 'http://prairiedevcon.com/Speakers',
+                    url: 'http://prairiedevcon.com/Sessions',
                     method: "GET",
                     params: {},
                     success: function(res, request) {                

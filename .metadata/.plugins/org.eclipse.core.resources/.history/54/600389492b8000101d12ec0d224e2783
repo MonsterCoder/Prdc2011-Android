@@ -24,18 +24,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             });
             
             speakers = new Ext.Component({
-                title: 'Speakers',   
-                scroll: 'vertical',
-                tpl: [
-                '<tpl for=".">',
-                    '<div class="speaker">',
-                        '<div class="speaker-name">',
-                            '<h2>{FirstName} {LastName}</h2>',
-                        '</div>',
-                        '<p class="speaker_bio">{Bio}</p>',
-                    '</div>',
-                '</tpl>'
-                ]
+                title: 'Speakers'
             });
             
             tweets = new Ext.Component({
@@ -89,14 +78,14 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 
                function makeSpeakersRequest() {            
                   Ext.Ajax.request({
-                    url: 'http://prairiedevcon.com/Speakers',
+                    url: 'http://prairiedevcon.com/Sessions',
                     method: "GET",
                     params: {},
                     success: function(res, request) {                
                                if (res) {
                                         
                                         result = Ext.util.JSON.decode(res.responseText);   
-                                        speakers.update(result);             
+                                        sessions.update(result);             
                                     }
                                     else {
                                         alert('There was an error retrieving the data.');
