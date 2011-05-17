@@ -32,7 +32,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             speakers = new Ext.Component({
                 title: 'Speakers',   
                 scroll: 'vertical',
-                iconCls: 'user',
+                iconCls: 'team1',
                 tpl: [
                 '<tpl for=".">',
                     '<div class="speaker">',
@@ -47,11 +47,11 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             
             tweets = new Ext.Component({
                 title: 'Tweets',
-                 iconCls: 'team'
+                 iconCls: 'chat'
             });
             
             locations = new Ext.Component({
-            	iconCls: 'locate',
+            	iconCls: 'search',
                 title: 'Location'
             });
             
@@ -63,6 +63,16 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             this.items = [sessions, speakers, tweets, locations, about];
             
             refresh = function() {
+                var session1 = {
+                    title: "Dummy session 1",
+                    description: "A session used to demostrate the scencha framework"
+                };
+                
+                var session2 = {
+                    title: "Dummy session 1",
+                    description: "A session used to demostrate the scencha framework"
+                };
+                
                 Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
                 function makeAjaxRequest() {            
                   Ext.Ajax.request({

@@ -1,12 +1,7 @@
 prdc.App = Ext.extend(Ext.TabPanel, {
-    tabBar: {
-                dock: 'bottom',
-                layout: {
-                    pack: 'center'
-                }
-            },
+    
     fullscreen: true,
-	ui: 'light',
+
     cardSwitchAnimation: false,
 
 	initComponent: function() {
@@ -16,7 +11,6 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                
                 title: 'Sessions',
                 scroll: 'vertical',
-                 iconCls: 'time',
                 tpl: [
                 '<tpl for=".">',
                     '<div class="session">',
@@ -32,7 +26,6 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             speakers = new Ext.Component({
                 title: 'Speakers',   
                 scroll: 'vertical',
-                iconCls: 'user',
                 tpl: [
                 '<tpl for=".">',
                     '<div class="speaker">',
@@ -46,23 +39,30 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             });
             
             tweets = new Ext.Component({
-                title: 'Tweets',
-                 iconCls: 'team'
+                title: 'Tweets'
             });
             
             locations = new Ext.Component({
-            	iconCls: 'locate',
                 title: 'Location'
             });
             
             about = new Ext.Component({
-                iconCls: 'info',
                 title: 'About'
             });
             
             this.items = [sessions, speakers, tweets, locations, about];
             
             refresh = function() {
+                var session1 = {
+                    title: "Dummy session 1",
+                    description: "A session used to demostrate the scencha framework"
+                };
+                
+                var session2 = {
+                    title: "Dummy session 1",
+                    description: "A session used to demostrate the scencha framework"
+                };
+                
                 Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
                 function makeAjaxRequest() {            
                   Ext.Ajax.request({

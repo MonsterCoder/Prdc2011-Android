@@ -32,7 +32,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             speakers = new Ext.Component({
                 title: 'Speakers',   
                 scroll: 'vertical',
-                iconCls: 'user',
+                iconCls: 'team',
                 tpl: [
                 '<tpl for=".">',
                     '<div class="speaker">',
@@ -47,7 +47,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             
             tweets = new Ext.Component({
                 title: 'Tweets',
-                 iconCls: 'team'
+                 iconCls: 'chat'
             });
             
             locations = new Ext.Component({

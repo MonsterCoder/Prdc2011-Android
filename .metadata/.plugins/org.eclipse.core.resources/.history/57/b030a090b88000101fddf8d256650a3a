@@ -47,7 +47,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             
             tweets = new Ext.Component({
                 title: 'Tweets',
-                 iconCls: 'team'
+                 iconCls: 'chat'
             });
             
             locations = new Ext.Component({
