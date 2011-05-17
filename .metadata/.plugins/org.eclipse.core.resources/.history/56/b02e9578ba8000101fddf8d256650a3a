@@ -16,7 +16,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                
                 title: 'Sessions',
                 scroll: 'vertical',
-                iconCls: 'time',
+                 iconCls: 'time',
                 tpl: [
                 '<tpl for=".">',
                     '<div class="session">',
@@ -60,7 +60,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 title: 'About'
             });
             
-            if (navigator.onLine) {
+             if (navigator.onLine) {
 	            this.items = [sessions, speakers, tweets, locations, about];
 	            
 	            refresh = function() {

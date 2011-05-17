@@ -16,7 +16,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                
                 title: 'Sessions',
                 scroll: 'vertical',
-                iconCls: 'time',
+                 iconCls: 'time',
                 tpl: [
                 '<tpl for=".">',
                     '<div class="session">',

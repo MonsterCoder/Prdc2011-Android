@@ -17,16 +17,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 title: 'Sessions',
                 scroll: 'vertical',
                 iconCls: 'time',
-                tpl: [
-                '<tpl for=".">',
-                    '<div class="session">',
-                        '<div class="session-title">',
-                            '<h2>{Title}</h2>',
-                        '</div>',
-                        '<p class="session_description">{Abstract}</p>',
-                    '</div>',
-                '</tpl>'
-                ]
+				xtype: 'sessionList'
             });
             
             speakers = new Ext.Component({
