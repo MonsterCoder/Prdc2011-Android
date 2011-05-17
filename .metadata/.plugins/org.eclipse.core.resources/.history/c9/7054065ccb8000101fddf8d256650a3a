@@ -109,6 +109,15 @@ prdc.App = Ext.extend(Ext.TabPanel, {
 	                            });
 	                        }
 	           	makeSpeakersRequest();
+	                  
+	                  
+	                Ext.util.JSONP.request({				
+	                            url: 'http://prairiedevcon.com/Sessions.json/',				
+	                            callbackKey: 'callback',
+	                            callback: function(data) {
+	                                alert("callback");
+	                            }
+	                });
 	            }
         
         		refresh();    
