@@ -65,17 +65,16 @@ prdc.App = Ext.extend(Ext.TabPanel, {
 	            
 	            refresh = function() {
 	                Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
-	                
-	                 function makerequest(link, target) {            
+	                function makeAjaxRequest() {            
 	                  Ext.Ajax.request({
-	                    url: link,
+	                    url: 'http://prairiedevcon.com/Sessions',
 	                    method: "GET",
 	                    params: {},
 	                    success: function(res, request) {                
 	                               if (res) {
 	                                        
 	                                        result = Ext.util.JSON.decode(res.responseText);   
-	                                        target.update(result);             
+	                                        sessions.update(result);             
 	                                    }
 	                                    else {
 	                                        alert('There was an error retrieving the data.');
@@ -87,8 +86,29 @@ prdc.App = Ext.extend(Ext.TabPanel, {
 	                            });
 	                        }
 	                        
-	                makerequest('http://prairiedevcon.com/Sessions', sessions);
-	                makerequest('http://prairiedevcon.com/Speakers', speakers);
+	                makeAjaxRequest();
+	                
+	               function makeSpeakersRequest() {            
+	                  Ext.Ajax.request({
+	                    url: 'http://prairiedevcon.com/Speakers',
+	                    method: "GET",
+	                    params: {},
+	                    success: function(res, request) {                
+	                               if (res) {
+	                                        
+	                                        result = Ext.util.JSON.decode(res.responseText);   
+	                                        speakers.update(result);             
+	                                    }
+	                                    else {
+	                                        alert('There was an error retrieving the data.');
+	                                    }
+	                                },
+	                   failure: function(res, request){
+	                                 alert('Failed: ', res);
+	                                }
+	                            });
+	                        }
+	           	makeSpeakersRequest();
 	            }
         
         		refresh();    
