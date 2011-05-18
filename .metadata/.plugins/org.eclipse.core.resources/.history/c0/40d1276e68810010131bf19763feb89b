@@ -1,0 +1,5 @@
+SpeakerList = Ext.extend(Ext.Panel, {
+    layout: 'card',  
+    initComponent: function() {}
+        
+});

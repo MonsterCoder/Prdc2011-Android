@@ -1,0 +1,199 @@
+Ext.regModel('Speaker', {
+    fields: ['id', 'FirstName', 'LastName']
+});
+
+prdc.SpeakerStore = new Ext.data.Store({
+                model: 'Contact',
+                sorters: 'firstName',
+
+                getGroupString : function(record) {
+                    return record.get('firstName')[0];
+                },
+
+                data: [
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Ape', lastName: 'Evilias'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Ape', lastName: 'Evilias'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Ape', lastName: 'Evilias'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Ape', lastName: 'Evilias'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Tommy', lastName: 'Maintz'},
+                    {firstName: 'Ed', lastName: 'Spencer'},
+                    {firstName: 'Jamie', lastName: 'Avins'},
+                    {firstName: 'Aaron', lastName: 'Conran'},
+                    {firstName: 'Dave', lastName: 'Kaneda'},
+                    {firstName: 'Michael', lastName: 'Mullany'},
+                    {firstName: 'Abraham', lastName: 'Elias'},
+                    {firstName: 'Jay', lastName: 'Robinson'},
+                    {firstName: 'Zed', lastName: 'Zacharias'}
+                ]
+            })
+        };
+
+prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
+    layout: 'card',
+    
+    initComponent: function() {
+        
+        this.list = new Ext.List({
+            grouped: true,
+            indexBar: true,
+            itemTpl: '<div class="avatar"<tpl if="photo"> style="background-image: url({photo})"</tpl>></div><span class="name">{FirstName}<tpl><br /><span class="tertiary">{LastName}<tpl if="affiliation">, {affiliation}</tpl></span></tpl></span>',
+            store: prdc.SpeakerStore,
+            listeners: {
+                selectionchange: {fn: this.onSelect, scope: this}
+            }
+        });
+        
+        this.listpanel = new Ext.Panel({
+            layout: 'fit',
+            items: this.list,
+            dockedItems: [{
+                xtype: 'toolbar',
+                title: 'Speakers'
+            }],
+            listeners: {
+                activate: { fn: function(){
+                    this.list.getSelectionModel().deselectAll();
+                    Ext.repaint();
+                }, scope: this }
+            }
+        });
+        
+        this.items = this.listpanel;
+        
+        prdc.views.SpeakerList.superclass.initComponent.call(this);
+    },
+    
+    onSelect: function(sel, records){
+        if (records[0] !== undefined) {
+            
+            var bioCard = new prdc.views.SpeakerDetail({
+                prevCard: this.listpanel,
+                record: records[0]
+            });
+            
+            this.setActiveItem(bioCard, 'slide');
+        }
+    }
+});
+
+Ext.reg('speakerlist', prdc.views.SpeakerList);

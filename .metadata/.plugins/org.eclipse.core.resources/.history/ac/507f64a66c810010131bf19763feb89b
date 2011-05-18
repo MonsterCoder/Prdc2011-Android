@@ -1,0 +1,9 @@
+prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
+    layout: 'card',  
+    initComponent: function() { 
+    	        this.html = "hello world";
+        		prdc.views.SpeakerList.superclass.initComponent.call(this);
+    	}    
+});
+
+Ext.reg('speakerlist', prdc.views.SpeakerList);

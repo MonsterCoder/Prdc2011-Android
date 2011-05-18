@@ -1,0 +1,20 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>PrDC 2011</title>
+
+<link rel="stylesheet" href="Resources/css/Prdc.css" type="text/css" />
+<link rel="stylesheet" href="sencha/sencha-touch.css"  type="text/css"/>
+
+<script type="text/javascript" src="sencha/sencha-touch.js"></script>
+<script type="text/javascript" src="src/index.js"></script>
+<script type="text/javascript" src="src/App.js"></script>
+
+</head>
+
+<body>
+</body>
+</html>
+ 
+

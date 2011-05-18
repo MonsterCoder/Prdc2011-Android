@@ -29,21 +29,12 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 ]
             });
             
-            speakers = new Ext.Component({
+            speakers = {
+               	xtype: 'speakerlist',
                 title: 'Speakers',   
                 scroll: 'vertical',
-                iconCls: 'user',
-                tpl: [
-                '<tpl for=".">',
-                    '<div class="speaker">',
-                        '<div class="speaker-name">',
-                            '<h2>{FirstName} {LastName}</h2>',
-                        '</div>',
-                        '<p class="speaker_bio">{Bio}</p>',
-                    '</div>',
-                '</tpl>'
-                ]
-            });
+                iconCls: 'user'
+            };
             
             tweets = new Ext.Component({
                 title: 'Tweets',
@@ -88,7 +79,6 @@ prdc.App = Ext.extend(Ext.TabPanel, {
 	                        }
 	                        
 	                makerequest('http://prairiedevcon.com/Sessions', sessions);
-	                makerequest('http://prairiedevcon.com/Speakers', speakers);
 	            }
         
         		refresh();    
@@ -104,6 +94,4 @@ prdc.App = Ext.extend(Ext.TabPanel, {
 		
 		prdc.App.superclass.initComponent.call(this);
 	},
-    
-
 });
