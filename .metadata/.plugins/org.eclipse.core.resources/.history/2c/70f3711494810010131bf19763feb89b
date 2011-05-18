@@ -1,19 +1,34 @@
 Ext.regModel('Speaker', {
     fields: ['id', 'FirstName', 'LastName']
 });
-       
+
+function makerequest(link, target) {            
+	                  Ext.Ajax.request({
+	                    url: link,
+	                    method: "GET",
+	                    params: {},
+	                    success: function(res, request) {                
+	                               if (res) {
+	                                        
+	                                        result = Ext.util.JSON.decode(res.responseText);   
+	                                        target.update(result);             
+	                                    }
+	                                    else {
+	                                        alert('There was an error retrieving the data.');
+	                                    }
+	                                },
+	                   failure: function(res, request){
+	                                 alert('Failed: ', res);
+	                                }
+	                            });
+}
+            
 speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
 
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
-
-    initComponent: function() {		
-	    refresh=function(){            
-			speakers = [ {firstName: 'resfresh',   lastName: 'Maintz'}];
-		};		
-		
-		refresh();
-			            
+    
+    initComponent: function() {					            
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,

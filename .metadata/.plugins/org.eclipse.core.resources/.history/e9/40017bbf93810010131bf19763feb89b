@@ -1,19 +1,28 @@
 Ext.regModel('Speaker', {
     fields: ['id', 'FirstName', 'LastName']
 });
-       
+
+prdc.SpeakerStore = new Ext.data.Store({
+                model: 'Speaker',
+                sorters: 'time',
+                proxy: {
+                    type: 'scripttag',
+                    url : 'http://prairiedevcon.com/Speakers?format=json',
+                    reader: {
+                        type: 'json'                  
+                    }
+                },
+                listeners: {
+                    load: { fn: this.initializeData, scope: this }
+                }
+            });
+            
 speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
 
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
-
-    initComponent: function() {		
-	    refresh=function(){            
-			speakers = [ {firstName: 'resfresh',   lastName: 'Maintz'}];
-		};		
-		
-		refresh();
-			            
+    
+    initComponent: function() {					            
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,

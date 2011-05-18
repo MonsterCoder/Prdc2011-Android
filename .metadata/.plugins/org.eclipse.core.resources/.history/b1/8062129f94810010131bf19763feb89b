@@ -6,14 +6,10 @@ speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
 
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
-
-    initComponent: function() {		
-	    refresh=function(){            
-			speakers = [ {firstName: 'resfresh',   lastName: 'Maintz'}];
-		};		
-		
-		refresh();
-			            
+    refresh: function(){            
+		speakers = [ {firstName: 'resfresh',   lastName: 'Maintz'}];
+	},
+    initComponent: function() {					            
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,
