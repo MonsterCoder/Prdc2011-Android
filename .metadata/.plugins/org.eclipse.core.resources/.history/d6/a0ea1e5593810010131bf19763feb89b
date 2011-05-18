@@ -17,12 +17,12 @@ prdc.SpeakerStore = new Ext.data.Store({
                 }
             });
             
-speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
-
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
     
-    initComponent: function() {					            
+    initComponent: function() {
+        var speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
+						            
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,

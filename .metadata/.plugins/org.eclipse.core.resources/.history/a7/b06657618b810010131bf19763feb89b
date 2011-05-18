@@ -2,46 +2,42 @@ Ext.regModel('Speaker', {
     fields: ['id', 'FirstName', 'LastName']
 });
 
-prdc.SpeakerStore = new Ext.data.Store({
-                model: 'Speaker',
-                sorters: 'time',
-                proxy: {
-                    type: 'scripttag',
-                    url : 'http://prairiedevcon.com/Speakers?format=json',
-                    reader: {
-                        type: 'json'                  
-                    }
-                },
-                listeners: {
-                    load: { fn: this.initializeData, scope: this }
-                }
-            });
-            
-speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
+prdc.SpeakerStore = new Ext.data.JsonStore({
+            model  : 'Speaker',
+            sorters: 'lastName',
+
+            getGroupString : function(record) {
+                return record.get('lastName')[0];
+            },
+
+	       proxy : {
+		        type : 'ajax',
+		        url: 'http://prairiedevcon.com/Speakers?format=json',		
+		        reader : {
+		            type : 'json',
+		            root: '',
+		            idProperty : 'id'
+		        }
+	    	},
+	    	autoLoad : true
+
+        });
 
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
     
-    initComponent: function() {					            
+    initComponent: function() {
+        
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,
-            itemTpl: '<div class="contact2"><strong>{firstName}</strong> {lastName}</div>',
-            store: new Ext.data.JsonStore({
-								            model  : 'Speaker',
-								            sorters: 'lastName',
-								
-								            getGroupString : function(record) {
-								                return record.get('lastName')[0];
-								            },
-								
-								            data: speakers
-								        }),
+            itemTpl: '<div class="contact2"><strong>{FirstName}</strong> {LastName}</div>',
+            store: prdc.SpeakerStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
             }
         });
-         
+        
         this.listpanel = new Ext.Panel({
             layout: 'fit',
             items: this.list,

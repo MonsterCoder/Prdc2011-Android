@@ -17,12 +17,11 @@ prdc.SpeakerStore = new Ext.data.Store({
                 }
             });
             
-speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
-
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
     
-    initComponent: function() {					            
+    initComponent: function() {
+       
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,
@@ -35,7 +34,9 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 								                return record.get('lastName')[0];
 								            },
 								
-								            data: speakers
+								            data: [
+								                {firstName: 'Tommy',   lastName: 'Maintz'}
+								            ]
 								        }),
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
