@@ -2,8 +2,8 @@ Ext.regModel('Speaker', {
     fields: ['id', 'FirstName', 'LastName']
 });
        
-speakers = [ ];
-
+speakers = [ {firstName: 'Tommy',   lastName: 'Maintz'}];
+speakers2 = [ {firstName: 'Tommy',   lastName: 'Maintz'}, {firstName: 'Tommy',   lastName: 'Baintz'},{firstName: 'Tommy',   lastName: 'Aaintz'}];
 speakerStore =new Ext.data.JsonStore({
 								            model  : 'Speaker',							
 								            data: speakers
@@ -60,14 +60,14 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
                 activate: {fn: function(){ 
                 					Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
                     				 Ext.Ajax.request({
-						                    url: 'http://prairiedevcon.com/Speakers?format=json',
+						                    url: link,
 						                    method: "GET",
+						                    params: {},
 						                    success: function(res, request) {                
 						                               if (res) {
-						                                        result = Ext.util.JSON.decode(res.responseText); 
-						                          
-						                                          
-						                                        speakerStore.add.apply(speakerStore, result); 
+						                                        
+						                                        result = Ext.util.JSON.decode(res.responseText);   
+						                                        target.update(result);             
 						                                    }
 						                                    else {
 						                                        alert('There was an error retrieving the data.');
@@ -79,7 +79,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 		                            });
  
 
-                                    
+                                    speakerStore.add.apply(speakerStore, speakers2);
                                 }, scope: this
                         }
     }

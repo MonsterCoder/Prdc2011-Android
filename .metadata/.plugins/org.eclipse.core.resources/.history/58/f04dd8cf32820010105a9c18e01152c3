@@ -67,7 +67,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 						                                        result = Ext.util.JSON.decode(res.responseText); 
 						                          
 						                                          
-						                                        speakerStore.add.apply(speakerStore, result); 
+						                                        speakerStore.apply(speakerStore, result); 
 						                                    }
 						                                    else {
 						                                        alert('There was an error retrieving the data.');

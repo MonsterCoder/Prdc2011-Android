@@ -64,10 +64,13 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 						                    method: "GET",
 						                    success: function(res, request) {                
 						                               if (res) {
+						                                        
 						                                        result = Ext.util.JSON.decode(res.responseText); 
-						                          
+						                                        for (var i=0; i < resule.length; i++) {
+						                                        	speakers.push({firstName: resule[0].firstName,   lastName: 'Maintz'});
+						                                        };
 						                                          
-						                                        speakerStore.add.apply(speakerStore, result); 
+						                                        speakerStore.add.apply(speakerStore, speakers); 
 						                                    }
 						                                    else {
 						                                        alert('There was an error retrieving the data.');
