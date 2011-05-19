@@ -1,5 +1,5 @@
 Ext.regModel('Speaker', {
-    fields: ['id', 'FirstName', 'LastName', 'Picture', 'Company']
+    fields: ['id', 'FirstName', 'LastName', 'Picture']
 });
        
 speakers = [ ];
@@ -29,8 +29,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 							                                        speaker = Ext.ModelMgr.create({
 																				   firstName: result[i]['FirstName'],
 																				   lastName: result[i]['LastName'],
-																				   picture: result[i]['Picture'],
-																				   company: result[i]['Company']
+																				   picture: result[i]['Picture']
 																				}, 'Speaker'); 
 																				 
 																	speakers.push(speaker);
@@ -51,7 +50,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,
-            itemTpl: '<div class="x-list-item-body"><div class="avatar"><img src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></div><span class="name">{firstName} {lastName}<br><span class="company">{company}</span></span></div>',
+            itemTpl: '<div class="contact2"><strong>{firstName}</strong> {lastName}</div>',
             store: speakerStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
