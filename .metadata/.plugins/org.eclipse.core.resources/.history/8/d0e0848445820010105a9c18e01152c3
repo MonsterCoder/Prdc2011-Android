@@ -5,11 +5,10 @@ Ext.regModel('Speaker', {
 speakers = [ ];
 
 speakerStore =new Ext.data.JsonStore({
-								            model  : 'Speaker',	
-								            sorters: 'lastName',						
+								            model  : 'Speaker',							
 								            data: speakers,
 								            getGroupString: function(r){
-										        return r.get('lastName')[0]
+										        return r.get('LastName')[0]
 										    }
 								        });
 								        
@@ -47,8 +46,9 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 
         
         this.list = new Ext.List({
-            grouped: true,
+            grouped: false,
             indexBar: false,
+            fullscreen: true,
             itemTpl: '<div class="contact2"><strong>{firstName}</strong> {lastName}</div>',
             store: speakerStore,
             listeners: {
@@ -59,7 +59,6 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
         this.listpanel = new Ext.Panel({
             layout: 'fit',
             items: this.list,
-            fullscreen: true,
             dockedItems: [{
                 xtype: 'toolbar',
                 title: 'Speakers'

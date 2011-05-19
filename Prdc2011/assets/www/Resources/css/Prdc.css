@@ -4,26 +4,26 @@
 	   .x-tabpanel > .x-panel-body .x-panel-body {
 	       padding: 100px 0;
 	       text-align: center;
-	       font-size: 70px;
+	       font-size: 20px;
 	       font-weight: bold;
 	       color: rgba(0,0,0,.2);
 	       text-shadow: rgba(255,255,255,.2) 0 1px 0;
 	       padding: 100px 15%;
 	   }
 	   .x-phone .x-tabpanel > .x-panel-body .x-panel-body {
-	       padding: 30px 20px;
-	       font-size: 32px;
+	       padding: 5px 5px;
+	       font-size: 12px;
 	   }
 	   .x-phone p {
-	       font-size: 14px;
-	       line-height: 18px;
+	       font-size: 12px;
+	       line-height: 16px;
 	   }
 	   h1 {
 	       font-weight: bold;
 	   }
 	   p {
-	       font-size: 22px;
-	       line-height: 30px;
+	       font-size: 12px;
+	       line-height: 16px;
 	   }
 	   .card1 .x-panel-body {
 	       background-color: #ccc;
