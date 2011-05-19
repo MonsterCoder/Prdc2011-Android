@@ -19,18 +19,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 						     method: "GET",
 						     success: function(res, request) {                
 						                    if (res) {
-						                                  result = Ext.util.JSON.decode(res.responseText); 
-						                                        
-						                          		  for (var i = 0; i < result.length; i++) {
-							                                        speaker = Ext.ModelMgr.create({
-																				   firstName: result[i]['FirstName'],
-																				   lastName: result[i]['LastName']
-																				}, 'Speaker'); 
-																				 
-																	speakers.push(speaker);
-														  };
-														  
-						                                  speakerStore.add.apply(speakerStore, speakers); 
+	
 						               		}
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
