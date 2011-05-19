@@ -65,11 +65,12 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 						                    success: function(res, request) {                
 						                               if (res) {
 						                                        result = Ext.util.JSON.decode(res.responseText); 
-						                                        
-						                          				for (var i = 0; i < result.length; i++) {
+						                                        alert(result.length);
+						                          				for (var i; i < result.length; i++) {
+						                          					
 							                                        speaker = Ext.ModelMgr.create({
-																				   firstName: result[i]['FirstName'],
-																				   lastName: result[i]['LastName']
+																				   firstName: 'result[i].FirstName',
+																				   lastName: 'result[i].LastName'
 																				}, 'Speaker'); 
 																				 
 																	speakers.push(speaker);
