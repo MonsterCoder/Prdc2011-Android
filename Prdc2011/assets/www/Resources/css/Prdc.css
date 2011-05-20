@@ -40,40 +40,42 @@
 	   .card5 .x-panel-body {
 	       background-color: #926D9C;
 	   }
-       .x-list-item-body {
-           
+	   
+	   
+       .x-speaker-list-item {
+            margin:-1.2em -1.2em 1.2em -1.2em;
+            overflow:hidden;
        }
-       
-       .x-list-item-body .name{
-               -webkit-box-flex:1;
-               box-flex:1;
-               font-weight:bold;
-               font-size:1.4em;
-               overflow:hidden;
-               text-overflow:ellipsis;
-               display:block;
-               white-space:nowrap;
-               overflow:hidden
-       }
-       
-       .x-list-item-body .company{
-               font-weight:normal;
-               color:#999
-       }
-       
-      .avatar{
-            background-color:#eee;
-            background-position:center center;
-            -webkit-border-radius:0.5em;
-            border-radius:0.5em;
-            -webkit-box-shadow:rgba(255, 255, 255, 0.2) 0 1px 0;
-            width:42px;height:42px;
-            margin-right:10px;
-        }
-        
-        .avatar img {
-            -webkit-border-radius:0.5em;
-            border-radius:0.5em;
-            width:40px;height:40px;
-        }
 
+                   .x-speaker-list-item .avatar{
+                        width:42px;height:42px;
+                        margin-right:10px;
+                        float:left;
+                   }
+                    
+                   .x-speaker-list-item .avatar img {
+                        -webkit-border-radius:0.5em;
+                        border-radius:0.5em;
+                        width:40px;height:40px;
+                    }
+        
+        .bio_overview{
+            margin:-1.2em -1.2em 1.2em -1.2em;
+            overflow:hidden;
+        }
+                    .bio_overview h3{
+                        margin-top:.9em                
+                    }
+                        
+                    .bio_overview .avatar{
+                        margin:1.2em .9em 1.2em;
+                        float:left;
+                        width:60px;
+                        height:60px;
+                        background-size:62px auto
+                    }
+                    
+                   .bio_overview .avatar img {
+                        width:58px;
+                        height:58px;
+                    }
