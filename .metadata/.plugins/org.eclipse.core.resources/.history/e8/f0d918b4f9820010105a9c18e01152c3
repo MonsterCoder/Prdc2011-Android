@@ -12,16 +12,17 @@ prdc.App = Ext.extend(Ext.TabPanel, {
 	initComponent: function() {
 	       var tracks, speakers, tweets, locations, about;
 	        
-           tracks = {
+           tracks = new Ext.Component({
+               
                 title: 'Sessions',
                 iconCls: 'time',
     			xtype: 'tracklist',
     			scroll: 'vertical'
-            };
+            });
             
             speakers = {
-                title: 'Speakers',  
-               	xtype: 'speakerlist', 
+               	xtype: 'speakerlist',
+                title: 'Speakers',   
                 scroll: 'vertical',
                 iconCls: 'user'
             };

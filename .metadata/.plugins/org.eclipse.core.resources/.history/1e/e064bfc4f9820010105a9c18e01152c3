@@ -20,8 +20,8 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             };
             
             speakers = {
-                title: 'Speakers',  
-               	xtype: 'speakerlist', 
+               	xtype: 'speakerlist',
+                title: 'Speakers',   
                 scroll: 'vertical',
                 iconCls: 'user'
             };

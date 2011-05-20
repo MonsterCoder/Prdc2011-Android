@@ -13,6 +13,7 @@ prdc.App = Ext.extend(Ext.TabPanel, {
 	       var tracks, speakers, tweets, locations, about;
 	        
            tracks = {
+               
                 title: 'Sessions',
                 iconCls: 'time',
     			xtype: 'tracklist',
@@ -20,8 +21,8 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             };
             
             speakers = {
-                title: 'Speakers',  
-               	xtype: 'speakerlist', 
+               	xtype: 'speakerlist',
+                title: 'Speakers',   
                 scroll: 'vertical',
                 iconCls: 'user'
             };

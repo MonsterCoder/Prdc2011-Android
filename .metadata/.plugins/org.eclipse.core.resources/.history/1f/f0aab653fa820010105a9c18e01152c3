@@ -1,0 +1,7 @@
+Ext.regModel('Track', {
+    fields: ['id', 'FirstName', 'LastName', 'Picture', 'Company', 'Bio', 'Blog', 'Email', 'Location', 'Twitter', 'WebSite', 'Year']
+});
+       
+tracks = [ ];
+
+Ext.reg('tracklist', prdc.views.TrackList);

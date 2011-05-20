@@ -1,0 +1,91 @@
+Ext.regModel('Track', {
+    fields: ['Id', 'Category', 'Key', 'Name', 'NumberOfSessions']
+});
+       
+tracks = [ ];
+
+trackStore =new Ext.data.JsonStore({
+								            model: 'Track',					
+								            data :  tracks
+								        });
+								        
+prdc.views.TrackList = Ext.extend(Ext.Panel, {
+    layout: 'card',
+    initComponent: function() {		
+        Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
+        Ext.Ajax.request({
+						     url: 'http://prairiedevcon.com/Tracks?format=json',
+						     method: "GET",
+						     success: function(res, request) {                
+						                    if (res) {
+						                                  result = Ext.util.JSON.decode(res.responseText); 
+						                                        
+						                          		  for (var i = 0; i < result.length; i++) {
+							                                        speaker = Ext.ModelMgr.create({
+							                                         			   id: result[i]['Id'],
+																				   category: result[i]['Category'],
+																				   key: result[i]['Key'],
+																				   name: result[i]['Name'],
+																				   numberOfSessions: result[i]['NumberOfSessions']
+																				}, 'Track'); 
+																				 
+																	tracks(speaker);
+														  };
+														  
+						                                  trackStore.add.apply(trackStore, tracks); 
+						               		}
+						               		else {
+						                            alert('There was an error retrieving the data.');					               		
+						                    }
+						     },
+						     failure: function(res, request){
+						                                 alert('Failed: ', res);
+						     }
+		});  
+
+        
+        this.list = new Ext.List({
+            grouped: true,
+            indexBar: false,
+            itemTpl: '<div class="x-speaker-list-item"><div class="avatar"><tpl if="picture"><img src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl></div><h3>{firstName} {lastName}</h3><h4>{company}</h4></div>',
+            store: trackStore,
+            listeners: {
+                selectionchange: {fn: this.onSelect, scope: this}
+            }
+        });
+         
+        this.listpanel = new Ext.Panel({
+            layout: 'fit',
+            items: this.list,
+            fullscreen: true,
+            dockedItems: [{
+                xtype: 'toolbar',
+                title: 'Sessions'
+            }],
+            listeners: {
+                activate: { fn: function(){
+                    this.list.getSelectionModel().deselectAll();
+                    Ext.repaint();
+                }, scope: this }
+            }
+        });
+        
+        this.items = this.listpanel;
+        
+        prdc.views.TrackList.superclass.initComponent.call(this);
+    },
+    
+    onSelect: function(sel, records){
+        if (records[0] !== undefined) {
+            
+            var bioCard = new prdc.views.SpeakerDetail({
+                prevCard: this.listpanel,
+                record: records[0]
+            });
+            
+            this.setActiveItem(bioCard, 'slide');
+        }
+    }
+});
+
+Ext.reg('tracklist', prdc.views.TrackList);

@@ -1,0 +1,16 @@
+Ext.regModel('Track', {
+    fields: ['id', 'FirstName', 'LastName', 'Picture', 'Company', 'Bio', 'Blog', 'Email', 'Location', 'Twitter', 'WebSite', 'Year']
+});
+       
+tracks = [ ];
+
+trackStore =new Ext.data.JsonStore({
+								            model  : 'Speaker',	
+								            sorters: 'lastName',						
+								            data: speakers,
+								            getGroupString: function(r){
+										        return r.get('lastName')[0]
+										    }
+								        });
+								        
+Ext.reg('tracklist', prdc.views.TrackList);
