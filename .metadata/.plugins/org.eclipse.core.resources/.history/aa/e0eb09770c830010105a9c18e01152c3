@@ -44,7 +44,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 
         
         this.list = new Ext.List({
-             itemTpl: '<div ><strong>{name}</strong> ({numberOfSessions})<div class="x-list-disclosure"></div></div>',
+             itemTpl: '<div class="x-list-disclosure"><strong>{name}</strong> ({numberOfSessions})</div>',
             store: trackStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
@@ -74,15 +74,9 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
     
     onSelect: function(sel, records){
         if (records[0] !== undefined) {
-            
-													            var track = new prdc.views.SessionList({
-													                prevCard: this.listpanel,
-													                record: records[0]
-													            });
-													            
-													            this.setActiveItem(track, 'slide');
-													        }		   
-     }
+          alert("selected");
+        }
+    }
 });
 
 Ext.reg('tracklist', prdc.views.TrackList);

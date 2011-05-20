@@ -82,7 +82,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 													            
 													            this.setActiveItem(track, 'slide');
 													        }		   
-     }
+    }
 });
 
 Ext.reg('tracklist', prdc.views.TrackList);

@@ -34,7 +34,15 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 						                                  trackStore.add.apply(trackStore, tracks); 
 						               		}
 						               		else {
-						                            alert('There was an error retrieving the data.');					               		
+						                                   if (records[0] !== undefined) {
+            
+													            var track = new prdc.views.SessionList({
+													                prevCard: this.listpanel,
+													                record: records[0]
+													            });
+													            
+													            this.setActiveItem(track, 'slide');
+													        }		               		
 						                    }
 						     },
 						     failure: function(res, request){
@@ -74,15 +82,9 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
     
     onSelect: function(sel, records){
         if (records[0] !== undefined) {
-            
-													            var track = new prdc.views.SessionList({
-													                prevCard: this.listpanel,
-													                record: records[0]
-													            });
-													            
-													            this.setActiveItem(track, 'slide');
-													        }		   
-     }
+          alert("selected");
+        }
+    }
 });
 
 Ext.reg('tracklist', prdc.views.TrackList);

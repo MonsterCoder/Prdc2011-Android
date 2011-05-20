@@ -81,7 +81,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 													            });
 													            
 													            this.setActiveItem(track, 'slide');
-													        }		   
+													        	   
      }
 });
 
