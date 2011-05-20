@@ -78,19 +78,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
         this.items = this.list;
 
         prdc.views.SessionList.superclass.initComponent.call(this);
-    },
-
-    onSelect: function(sel, records){
-              if (records[0] !== undefined) {
-            
-													        var sd = new prdc.views.SessionDetail({
-													                prevCard: this.listpanel,
-													                record: records[0]
-													        });
-													            
-													        this.ownerCt.setActiveItem(sd, 'slide');	    	   
-     		 }
-     }
+    }
 });
 
 Ext.reg('sessionList', prdc.views.SessionList);

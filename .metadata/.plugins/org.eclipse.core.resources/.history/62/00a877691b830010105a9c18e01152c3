@@ -88,7 +88,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 													                record: records[0]
 													        });
 													            
-													        this.ownerCt.setActiveItem(sd, 'slide');	    	   
+													        this.setActiveItem(sd, 'slide');	    	   
      		 }
      }
 });

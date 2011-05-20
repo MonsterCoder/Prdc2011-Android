@@ -1,4 +1,4 @@
-prdc.views.SpeakerDetail = Ext.extend(Ext.Panel, {
+prdc.views.SessionDetail = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
     showSessionData: true,
     initComponent: function(){
@@ -28,8 +28,8 @@ prdc.views.SpeakerDetail = Ext.extend(Ext.Panel, {
             data: this.record.data
         }];
 
-        prdc.views.SpeakerDetail.superclass.initComponent.call(this);
+        prdc.views.SessionDetail.superclass.initComponent.call(this);
     }
 });
 
-Ext.reg('speakerdetail', prdc.views.SpeakerDetail);
+Ext.reg('sessionDetail', prdc.views.SessionDetail);

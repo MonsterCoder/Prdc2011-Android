@@ -29,6 +29,17 @@ prdc.views.SpeakerDetail = Ext.extend(Ext.Panel, {
         }];
 
         prdc.views.SpeakerDetail.superclass.initComponent.call(this);
+    },
+    
+    viewSession: function(selectModel, records){
+        if (records[0] !== undefined) {
+            var sessionCard = new prdc.views.SessionDetail({
+                prevCard: this,
+                record: records[0],
+                showSpeakerData: false
+            });
+            this.ownerCt.setActiveItem(sessionCard, 'slide');
+        }
     }
 });
 
