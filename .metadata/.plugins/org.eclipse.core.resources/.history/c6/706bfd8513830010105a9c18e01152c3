@@ -1,8 +1,8 @@
 Ext.regModel('Session', {
-    fields: ['Id', 'Presenter', 'Style', 'Title', 'Track', 'Abstract', 'Year']
+    fields: ['Id', 'Category', 'Key', 'Name', 'NumberOfSessions']
 });
        
-sessions = [];
+sessions = [ {name: "aaa"}, {name: "bbb"} ];
 
 sessionStore =new Ext.data.JsonStore({
 								            model: 'Session',					
@@ -17,24 +17,22 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
         Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Sessions/'+ this.record.data.key +'?format=json',
 						     method: "GET",
-						     success: function(res, request) {             
+						     success: function(res, request) {                
 						                    if (res) {
 						                                  result = Ext.util.JSON.decode(res.responseText);     
 						                          		  for (var i = 0; i < result.length; i++) {
 							                                        session = Ext.ModelMgr.create({
 							                                         			   id: result[i]['Id'],
-																				   presenter: result[i]['Presenter'],
-																				   style: result[i]['Style'],
-																				   title: result[i]['Title'],
-																				   track: result[i]['Track'],
-																				   year: result[i]['Year'],
-																				   abstract: result[i]['Abstract']
-																				}, 'Session'); 
+																				   category: result[i]['Category'],
+																				   key: result[i]['Key'],
+																				   name: result[i]['Name'],
+																				   numberOfSessions: result[i]['NumberOfSessions']
+																				}, 'Track'); 
 																				 
-																	sessions.push(session);
+																	sessions(session);
 														  };
 														  
-						                                  sessionStore.add.apply(sessionStore, sessions); 
+						                                  sessionStore.add.apply(sessionStore, session); 
 						               		}
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
@@ -66,7 +64,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
         }];
         
        this.list = new Ext.List({
-            itemTpl: '<div ><strong>{title}</strong> </div>',
+            itemTpl: '<div ><strong>{name}</strong> </div>',
             store: sessionStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}

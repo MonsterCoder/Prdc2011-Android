@@ -1,0 +1,56 @@
+Ext.regModel('Session', {
+    fields: ['Id', 'Category', 'Key', 'Name', 'NumberOfSessions']
+});
+       
+sessions = [ ];
+
+sessionStore =new Ext.data.JsonStore({
+								            model: 'Session',					
+								            data :  sessions
+								        });
+								        
+prdc.views.SessionList = Ext.extend(Ext.Panel, {
+    scroll: 'vertical',
+    initComponent: function(){
+        this.dockedItems = [{
+            xtype: 'toolbar',
+            title: this.record.data.name,
+            items: [{
+                ui: 'back',
+                text: 'Back',
+                scope: this,
+                handler: function(){
+                    this.ownerCt.setActiveItem(this.prevCard, {
+                        type: 'slide',
+                        reverse: true,
+                        scope: this,
+                        after: function(){
+                            this.destroy();
+                        }
+                    });
+                }
+            }]
+        }];
+        
+        this.items = [{
+            styleHtmlContent: true,
+            tpl: new Ext.XTemplate( '<div>{name}</div>'),
+            data: sessionStore
+        }];
+
+        prdc.views.SessionList.superclass.initComponent.call(this);
+    },
+    
+    viewSession: function(selectModel, records){
+        if (records[0] !== undefined) {
+            var sessionCard = new prdc.views.SessionList({
+                prevCard: this,
+                record: records[0]
+            });
+            
+            this.ownerCt.setActiveItem(sessionCard, 'slide');
+        }
+    }
+});
+
+Ext.reg('sessionList', prdc.views.SessionList);
