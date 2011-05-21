@@ -1,0 +1,17 @@
+Ext.ns('prdc', 'prdc.views');
+
+Ext.setup({
+    tabletStartupScreen: 'tablet_startup.png',
+    phoneStartupScreen: 'phone_startup.png',
+    icon: 'icon.png',
+    glossOnIcon: false,
+    statusBarStyle: 'black',
+    onReady: function() {
+         
+        prdc.App = new prdc.App({
+            title: 'Prairie Developer Conference 2011',
+            shortUrl: 'http://prairiedevcon.com/',
+            twitterSearch: '#PrairieDevCon'
+        });
+    }
+});

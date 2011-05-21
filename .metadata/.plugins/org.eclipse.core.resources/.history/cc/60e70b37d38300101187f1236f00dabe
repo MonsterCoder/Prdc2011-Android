@@ -29,7 +29,6 @@ prdc.App = Ext.extend(Ext.TabPanel, {
             locations = {
                 title: 'Location',
                 iconCls: 'locate',
-                xtype: 'location',
                 coords: this.gmapCoords,
                 mapText: this.gmapText,
                 permLink: this.gmapLink

@@ -26,13 +26,14 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 iconCls: 'user'
             };
             
+
             locations = {
                 title: 'Location',
                 iconCls: 'locate',
                 xtype: 'location',
                 coords: this.gmapCoords,
                 mapText: this.gmapText,
-                permLink: this.gmapLink
+                permLink: this.gmapLink,
             };
             
             tweets = new Ext.Component({

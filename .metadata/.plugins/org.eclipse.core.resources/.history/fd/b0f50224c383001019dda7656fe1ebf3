@@ -1,0 +1,4 @@
+Ext.regModel('Speaker', {
+    fields: ['id', 'FirstName', 'LastName', 'Picture', 'Company', 'Bio', 'Blog', 'Email', 'Location', 'Twitter', 'WebSite', 'Year']
+});
+       

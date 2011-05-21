@@ -1,4 +1,8 @@
- tracks = [ ];
+Ext.regModel('Track', {
+    fields: ['Id', 'Category', 'Key', 'Name', 'NumberOfSessions']
+});
+       
+tracks = [ ];
 
 trackStore =new Ext.data.JsonStore({
 								            model: 'Track',					
