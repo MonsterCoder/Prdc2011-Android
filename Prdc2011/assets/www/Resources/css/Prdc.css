@@ -79,4 +79,38 @@
                         width:58px;
                         height:58px;
                     }
+        .x-list-item-body{
+                display:-webkit-box;
+                display:box;
+                -webkit-box-orient:horizontal;
+                box-orient:horizontal;
+                -webkit-box-align:center;
+                box-align:center
+            
+        }
+        
+        .x-list-item-body strong{
+                font-weight:bold}
+                
+       .x-list-item-body .name{
+                -webkit-box-flex:1;
+                box-flex:1;
+                font-weight:bold;
+                font-size:1.4em;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                display:block;
+                white-space:nowrap;
+                overflow:hidden
+            
+        }
+        .x-list-item-body .secondary{
+            display:block;
+            font-size:10px !important;color:#d40e3f;
+            margin-left:.5em;
+            white-space:nowrap;overflow:hidden;
+            text-overflow:ellipsis
+                
+       }
+   
    

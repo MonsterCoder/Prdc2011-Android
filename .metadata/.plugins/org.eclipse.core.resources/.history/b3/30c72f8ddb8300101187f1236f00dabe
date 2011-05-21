@@ -35,12 +35,10 @@ prdc.App = Ext.extend(Ext.TabPanel, {
                 permLink: this.gmapLink
             };
             
-            tweets = {
-                 title: 'Tweets',
-                 iconCls: 'team',
-                 xtype: 'tweetlist',
-                 hashtag: this.twitterSearch
-            };
+            tweets = new Ext.Component({
+                title: 'Tweets',
+                 iconCls: 'team'
+            });
             
             about = new Ext.Component({
                 iconCls: 'info',
