@@ -1,10 +1,8 @@
-prdc.views.SpeakerDetail = Ext.extend(Ext.Panel, {
+prdc.views.SessionDetail = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
-    showSessionData: true,
     initComponent: function(){
         this.dockedItems = [{
             xtype: 'toolbar',
-            title: this.record.data.name,
             items: [{
                 ui: 'back',
                 text: 'Back',
@@ -21,15 +19,15 @@ prdc.views.SpeakerDetail = Ext.extend(Ext.Panel, {
                 }
             }]
         }];
-
+        
         this.items = [{
             styleHtmlContent: true,
-            tpl: new Ext.XTemplate('<div class = "x-list-item-body"><tpl if="picture"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl> <div class="speaker_title"><h3>{firstName} {lastName}, {location}</h3><h4>{company}</h4></div></div> <p>{bio}</p>'),
+            tpl: new Ext.XTemplate('<h3>{title}</h3> {presenter}, {style} <p>{abstract}</p> '),
             data: this.record.data
         }];
 
-        prdc.views.SpeakerDetail.superclass.initComponent.call(this);
+        prdc.views.SessionDetail.superclass.initComponent.call(this);
     }
 });
 
-Ext.reg('speakerdetail', prdc.views.SpeakerDetail);
+Ext.reg('sessionDetail', prdc.views.SessionDetail);
