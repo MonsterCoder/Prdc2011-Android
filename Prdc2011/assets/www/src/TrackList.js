@@ -7,9 +7,43 @@ trackStore =new Ext.data.JsonStore({
 								        
 prdc.views.TrackList = Ext.extend(Ext.Panel, {
     layout: 'card',
-    initComponent: function() {		
-        Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
-        Ext.Ajax.request({
+    initComponent: function() {	
+        var toolbarBase = {
+            xtype: 'toolbar',
+            title: "Sessions"
+        };	
+
+        this.list = new Ext.List({
+             itemTpl: '<div ><strong>{name}</strong> ({numberOfSessions})<div class="x-list-disclosure"></div></div>',
+            store: trackStore,
+            listeners: {
+                selectionchange: {fn: this.onSelect, scope: this}
+            }
+        });
+        
+        this.list.on('afterrender', this.loadStore, this);
+        
+        this.items = [this.list];
+        
+        this.dockedItems = toolbarBase;
+        
+        prdc.views.TrackList.superclass.initComponent.call(this);
+    },
+    
+    onSelect: function(sel, records){
+        if (records[0] !== undefined) {
+            
+													            var track = new prdc.views.SessionList({
+													                prevCard: this.listpanel,
+													                record: records[0]
+													            });
+													            
+													            this.setActiveItem(track, 'slide');
+													        }		   
+     },
+     loadStore: function(){
+        this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
+       	Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Tracks?format=json',
 						     method: "GET",
 						     success: function(res, request) {                
@@ -37,47 +71,8 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 						                                 alert('Failed: ', res);
 						     }
 		});  
-
-        
-        this.list = new Ext.List({
-             itemTpl: '<div ><strong>{name}</strong> ({numberOfSessions})<div class="x-list-disclosure"></div></div>',
-            store: trackStore,
-            listeners: {
-                selectionchange: {fn: this.onSelect, scope: this}
-            }
-        });
-         
-        this.listpanel = new Ext.Panel({
-            layout: 'fit',
-            items: this.list,
-            fullscreen: true,
-            dockedItems: [{
-                xtype: 'toolbar',
-                title: 'Sessions'
-            }],
-            listeners: {
-                activate: { fn: function(){
-                    this.list.getSelectionModel().deselectAll();
-                    Ext.repaint();
-                }, scope: this }
-            }
-        });
-        
-        this.items = this.listpanel;
-        
-        prdc.views.TrackList.superclass.initComponent.call(this);
-    },
-    
-    onSelect: function(sel, records){
-        if (records[0] !== undefined) {
-            
-													            var track = new prdc.views.SessionList({
-													                prevCard: this.listpanel,
-													                record: records[0]
-													            });
-													            
-													            this.setActiveItem(track, 'slide');
-													        }		   
+		
+        this.list.el.unmask();
      }
 });
 

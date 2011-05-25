@@ -1,0 +1,5 @@
+sessionStore =new Ext.data.JsonStore({
+								            model: 'Session',					
+								            data :  sessions
+								        });
+								        

@@ -8,11 +8,46 @@ speakerStore =new Ext.data.JsonStore({
 										        return r.get('lastName')[0]
 										    }
 								        });
-								        
+
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
 
     initComponent: function() {		
+        var toolbarBase = {
+            xtype: 'toolbar',
+            title: "Speakers"
+        };
+        
+        this.list = new Ext.List({
+            grouped: true,
+            indexBar: false,
+            itemTpl: '<div class="x-speaker-list-item"><div class="avatar"><tpl if="picture"><img src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl></div><h3>{firstName} {lastName}</h3><h4>{company}</h4></div>',
+            store: speakerStore,
+            listeners: {
+                selectionchange: {fn: this.onSelect, scope: this}
+            }
+        });
+              
+        this.list.on('afterrender', this.loadStore, this);
+        
+        this.items = [this.list];
+        this.dockedItems = toolbarBase;
+        prdc.views.SpeakerList.superclass.initComponent.call(this);
+    },
+    
+    onSelect: function(sel, records){
+        if (records[0] !== undefined) {
+            
+            var bioCard = new prdc.views.SpeakerDetail({
+                prevCard: this.listpanel,
+                record: records[0]
+            });
+            
+            this.setActiveItem(bioCard, 'slide');
+        }
+    },
+    loadStore: function(){
+        this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
         Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
         Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Speakers?format=json',
@@ -49,51 +84,11 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
 						     }
-		});  
-
+		 });  
         
-        this.list = new Ext.List({
-            grouped: true,
-            indexBar: false,
-            itemTpl: '<div class="x-speaker-list-item"><div class="avatar"><tpl if="picture"><img src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl></div><h3>{firstName} {lastName}</h3><h4>{company}</h4></div>',
-            store: speakerStore,
-            listeners: {
-                selectionchange: {fn: this.onSelect, scope: this}
-            }
-        });
-         
-        this.listpanel = new Ext.Panel({
-            layout: 'fit',
-            items: this.list,
-            fullscreen: true,
-            dockedItems: [{
-                xtype: 'toolbar',
-                title: 'Speakers'
-            }],
-            listeners: {
-                activate: { fn: function(){
-                    this.list.getSelectionModel().deselectAll();
-                    Ext.repaint();
-                }, scope: this }
-            }
-        });
-        
-        this.items = this.listpanel;
-        
-        prdc.views.SpeakerList.superclass.initComponent.call(this);
-    },
-    
-    onSelect: function(sel, records){
-        if (records[0] !== undefined) {
-            
-            var bioCard = new prdc.views.SpeakerDetail({
-                prevCard: this.listpanel,
-                record: records[0]
-            });
-            
-            this.setActiveItem(bioCard, 'slide');
-        }
+         this.list.el.unmask();
     }
+    
 });
 
 Ext.reg('speakerlist', prdc.views.SpeakerList);

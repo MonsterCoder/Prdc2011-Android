@@ -1,0 +1,8 @@
+speakerStore =new Ext.data.JsonStore({
+								            model  : 'Speaker',	
+								            sorters: 'lastName',						
+								            data: speakers,
+								            getGroupString: function(r){
+										        return r.get('lastName')[0]
+										    }
+								        });
