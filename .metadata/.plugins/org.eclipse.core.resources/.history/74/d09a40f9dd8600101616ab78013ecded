@@ -1,10 +1,5 @@
 sessions = [];
 
-sessionStore =new Ext.data.JsonStore({
-								            model: 'Session',					
-								            data :  sessions
-								        });
-								        
 prdc.views.SessionList = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
     initComponent: function(){
@@ -31,7 +26,10 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
        
        this.list = new Ext.List({
             itemTpl: '<div >{title} <br> {presenter} <br>{style}<div class="x-list-disclosure"></div></div>',
-            store: sessionStore,
+            store: new Ext.data.JsonStore({
+								            model: 'Session',					
+								            data :  sessions
+								        }),      
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
             }
@@ -64,8 +62,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 						     method: "GET",
 						     success: function(res, request) {             
 						                    if (res) {
-						                                  result = Ext.util.JSON.decode(res.responseText);  
-						                                  sessionStore.remove(sessions);
+						                                  result = Ext.util.JSON.decode(res.responseText);   
 						                                  sessions.length = 0;  
 						                          		  for (var i = 0; i < result.length; i++) {
 							                                        session = Ext.ModelMgr.create({
@@ -81,7 +78,9 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 																	sessions.push(session);
 														  };
 														  
-						                                  sessionStore.add.apply(sessionStore, sessions); 
+						                                 this.list.store.add.apply(this.list.store, sessions); 
+						                                 Ext.StoreMgr.get('SessionStore').load();
+						                                 
 						               		}
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		

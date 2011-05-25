@@ -64,9 +64,9 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 						     method: "GET",
 						     success: function(res, request) {             
 						                    if (res) {
-						                                  result = Ext.util.JSON.decode(res.responseText);  
-						                                  sessionStore.remove(sessions);
+						                                  result = Ext.util.JSON.decode(res.responseText);   
 						                                  sessions.length = 0;  
+						                                  sessionStore.clear();
 						                          		  for (var i = 0; i < result.length; i++) {
 							                                        session = Ext.ModelMgr.create({
 							                                         			   id: result[i]['Id'],
