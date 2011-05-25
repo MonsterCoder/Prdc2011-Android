@@ -76,15 +76,14 @@ prdc.views.TweetList = Ext.extend(Ext.Panel, {
     },
     
     loadStore: function(){
-        var me  = this.list;
-		me.setLoading(true); 
+        this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
         
         this.list.store.load({
             params: {
                 q: this.hashtag
             },
             callback: function(data){
-                me.setLoading(false); 
+                this.list.el.unmask();
             },
             scope: this
         });

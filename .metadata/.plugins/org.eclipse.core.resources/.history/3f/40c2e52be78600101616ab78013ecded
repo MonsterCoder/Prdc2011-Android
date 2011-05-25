@@ -42,9 +42,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 													        }		   
      },
      loadStore: function(){
-     	var me  = this.list;
-        me.setLoading(true); 
-        
+        this.setLoading(true); 
        	Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Tracks?format=json',
 						     method: "GET",
@@ -63,23 +61,18 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 																	tracks.push(track);
 														  };
 														  
-						                                  trackStore.add.apply(trackStore, tracks); 	
-						                                  me.setLoading(false); 		                                 
+						                                  trackStore.add.apply(trackStore, tracks); 
 						               		}
 						               		else {
-						                            alert('There was an error retrieving the data.');
-						                            me.setLoading(false); 				               		
-						                    };
-						                     
-						                   
+						                            alert('There was an error retrieving the data.');					               		
+						                    }
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 me.setLoading(false); 
-						                                 
 						     }
 		});  
 		
+        this.list.el.unmask();
      }
 });
 

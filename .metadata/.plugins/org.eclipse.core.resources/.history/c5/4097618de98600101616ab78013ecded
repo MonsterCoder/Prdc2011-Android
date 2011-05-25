@@ -42,7 +42,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 													        }		   
      },
      loadStore: function(){
-     	var me  = this.list;
+     	var me  = this;
         me.setLoading(true); 
         
        	Ext.Ajax.request({

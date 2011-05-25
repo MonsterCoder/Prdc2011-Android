@@ -42,7 +42,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 													        }		   
      },
      loadStore: function(){
-     	var me  = this.list;
+     	var me  = this;
         me.setLoading(true); 
         
        	Ext.Ajax.request({
@@ -67,15 +67,13 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 						                                  me.setLoading(false); 		                                 
 						               		}
 						               		else {
-						                            alert('There was an error retrieving the data.');
-						                            me.setLoading(false); 				               		
+						                            alert('There was an error retrieving the data.');				               		
 						                    };
 						                     
 						                   
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 me.setLoading(false); 
 						                                 
 						     }
 		});  
