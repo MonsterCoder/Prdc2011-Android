@@ -14,7 +14,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
         };	
 
         this.list = new Ext.List({
-         	itemTpl: '<div class="x-list-item-body"><div class="name"><strong>{name}</strong> ({numberOfSessions})</div>  <div class="secondary"> </div></div>',
+            itemTpl: '<div class="icon_next"><div class="x-list-disclosure" style="float:right; width: auto; background: green"></div></div> <div class="track_title"><strong>{name}</strong>({numberOfSessions})</div> ',
             store: trackStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
