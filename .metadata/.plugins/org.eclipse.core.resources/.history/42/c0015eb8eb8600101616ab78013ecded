@@ -88,12 +88,10 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 						               		}
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
-						                    };
-						                    me.setLoading(false); 
+						                    }
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 me.setLoading(false); 
 						     }
 		});  
 		

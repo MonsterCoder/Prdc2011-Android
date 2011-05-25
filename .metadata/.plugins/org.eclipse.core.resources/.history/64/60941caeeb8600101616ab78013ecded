@@ -56,9 +56,6 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
      		 }
      },
      loadStore: function(){
-	    var me = this;
-	    me.setLoading(true); 
-	      
         this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
         Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
        	
@@ -88,12 +85,10 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 						               		}
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
-						                    };
-						                    me.setLoading(false); 
+						                    }
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 me.setLoading(false); 
 						     }
 		});  
 		
