@@ -34,7 +34,7 @@ prdc.views.TweetList = Ext.extend(Ext.Panel, {
         this.dockedItems = toolbarBase;
         
         this.list = new Ext.List({
-            itemTpl: new Ext.XTemplate('<tpl if="profile_image_url"> <img class="avata_img" src="{profile_image_url}"/> </tpl><div class="tweet"> <h3>{from_user}<tpl if="to_user"> &raquo; {to_user}</tpl></h3>  {text:this.linkify}</div>', {
+            itemTpl: new Ext.XTemplate('<tpl if="profile_image_url"> <img class="avata_img" src="{profile_image_url}"/> </tpl><div class="speaker_title"><h3>{from_user}<tpl if="to_user"> &raquo; {to_user}</tpl></h3><br/>{text:this.linkify}</div>', {
                 linkify: function(value) {
                     return value.replace(/(http:\/\/[^\s]*)/g, "<span class=\"link\" href=\"$1\">$1</span>");
                 }

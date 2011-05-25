@@ -123,12 +123,6 @@
     height:1.7em;
 }
     
-                   .x-list-item-body .avatar{
-                        width:42px;height:42px;
-                        margin-right:10px;
-                        float:left;
-                   }
-                    
                    .avata_img {
                         -webkit-border-radius:0.5em;
                         border-radius:0.5em;
@@ -143,3 +137,15 @@
             margin-left:13px;
             text-align: left;
    }
+   
+   .tweet {
+            display:block;
+            overflow:visible;       
+            text-align: left;
+            font-weight:normal;
+            text-align: left;
+            padding: 5px;
+            padding-right: 8px;
+   }
+   
+   
