@@ -14,6 +14,7 @@
 	       padding: 5px 5px;
 	       font-size: 12px;
 	   }
+	   
 	   .x-phone p {
 	       font-size: 12px;
 	       line-height: 16px;
@@ -42,22 +43,7 @@
 	   }
 	   
 	   
-       .x-speaker-list-item {
-            margin:-1.2em -1.2em 1.2em -1.2em;
-            overflow:hidden;
-       }
 
-                   .x-speaker-list-item .avatar{
-                        width:42px;height:42px;
-                        margin-right:10px;
-                        float:left;
-                   }
-                    
-                   .x-speaker-list-item .avatar img {
-                        -webkit-border-radius:0.5em;
-                        border-radius:0.5em;
-                        width:40px;height:40px;
-                    }
         
         .bio_overview{
             margin:-1.2em -1.2em 1.2em -1.2em;
@@ -95,6 +81,7 @@
                 box-align:center
                     
                 }
+                
        .x-list-item-body .title{
             -webkit-box-flex:1;
             box-flex:1;
@@ -108,18 +95,18 @@
             overflow:hidden       
         }
         
-        .x-list-item-body .title h3 {
+        .x-list-item-body  h3 {
             font-weight:bold;
             overflow:hidden;
             text-overflow:ellipsis;
         }
         
-        .x-list-item-body .title h4 {
+        .x-list-item-body  h4 {
             font-weight:normal;
             font-size:1 em;
         }
         
-       .x-list-item-body .title strong{
+       .x-list-item-body  strong{
                 font-weight:bold  
        }
         
@@ -135,5 +122,24 @@
     width:1.7em;
     height:1.7em;
 }
-     
-   
+    
+                   .x-list-item-body .avatar{
+                        width:42px;height:42px;
+                        margin-right:10px;
+                        float:left;
+                   }
+                    
+                   .avata_img {
+                        -webkit-border-radius:0.5em;
+                        border-radius:0.5em;
+                        width:38px;height:38px;
+                    }
+   .speaker_title {
+            overflow:hidden;
+            text-overflow:ellipsis;
+            display:block;
+            white-space:nowrap;
+            overflow:hidden;       
+            margin-left:13px;
+            text-align: left;
+   }

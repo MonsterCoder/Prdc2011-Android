@@ -21,7 +21,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,
-            itemTpl: '<tpl if="picture"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl> <div class="speaker_title"><h3>{firstName} {lastName}, {location}</h3><h4>{company}</h4></div>',
+            itemTpl: '<tpl if="picture"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl> <h3>{firstName} {lastName}</h3><h4>{company}</h4><',
             store: speakerStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
