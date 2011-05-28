@@ -6,7 +6,6 @@ sessionStore =new Ext.data.JsonStore({
 								        });
 								        
 prdc.views.SessionList = Ext.extend(Ext.Panel, {
-    layout: 'fit',
     scroll: 'vertical',
     initComponent: function(){
 

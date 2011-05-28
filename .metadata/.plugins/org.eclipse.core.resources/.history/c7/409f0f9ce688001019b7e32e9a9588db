@@ -1,5 +1,4 @@
 prdc.views.SessionDetail = Ext.extend(Ext.Panel, {
-    layout: 'fit',
     scroll: 'vertical',
     initComponent: function(){
         this.dockedItems = [{

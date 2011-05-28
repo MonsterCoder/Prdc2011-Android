@@ -11,7 +11,7 @@ speakerStore =new Ext.data.JsonStore({
 
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
-	scroll: 'vertical',
+
     initComponent: function() {		
         var toolbarBase = {
             xtype: 'toolbar',

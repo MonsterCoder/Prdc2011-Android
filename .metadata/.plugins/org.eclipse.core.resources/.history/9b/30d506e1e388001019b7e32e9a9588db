@@ -1,7 +1,6 @@
 prdc.views.TweetList = Ext.extend(Ext.Panel, {
     hashtag: '',
     layout: 'fit',
-    scroll: 'vertical',
     initComponent: function(){
         
         var toolbarBase = {

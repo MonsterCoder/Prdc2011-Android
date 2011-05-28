@@ -1,4 +1,4 @@
-tracks = [ ];
+ tracks = [ ];
 
 trackStore =new Ext.data.JsonStore({
 								            model: 'Track',					
@@ -7,7 +7,6 @@ trackStore =new Ext.data.JsonStore({
 								        
 prdc.views.TrackList = Ext.extend(Ext.Panel, {
     layout: 'card',
-    scroll: 'vertical',
     initComponent: function() {	
         var toolbarBase = {
             xtype: 'toolbar',
@@ -15,7 +14,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
         };	
 
         this.list = new Ext.List({
-         	itemTpl: '<div class="x-list-item-body"><div class="title"><strong>{name}</strong> <small>({numberOfSessions})</small></div>  <div class="icon"> </div></div>',
+             itemTpl: '<div ><strong>{name}</strong> ({numberOfSessions})<div class="x-list-disclosure"></div></div>',
             store: trackStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
@@ -43,9 +42,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 													        }		   
      },
      loadStore: function(){
-     	var me  = this.list;
-        me.setLoading(true); 
-        
+        this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
        	Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Tracks?format=json',
 						     method: "GET",
@@ -64,23 +61,18 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 																	tracks.push(track);
 														  };
 														  
-						                                  trackStore.add.apply(trackStore, tracks); 	
-						                                  me.setLoading(false); 		                                 
+						                                  trackStore.add.apply(trackStore, tracks); 
 						               		}
 						               		else {
-						                            alert('There was an error retrieving the data.');
-						                            me.setLoading(false); 				               		
-						                    };
-						                     
-						                   
+						                            alert('There was an error retrieving the data.');					               		
+						                    }
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 me.setLoading(false); 
-						                                 
 						     }
 		});  
 		
+        this.list.el.unmask();
      }
 });
 

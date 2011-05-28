@@ -7,7 +7,6 @@ trackStore =new Ext.data.JsonStore({
 								        
 prdc.views.TrackList = Ext.extend(Ext.Panel, {
     layout: 'card',
-    scroll: 'vertical',
     initComponent: function() {	
         var toolbarBase = {
             xtype: 'toolbar',

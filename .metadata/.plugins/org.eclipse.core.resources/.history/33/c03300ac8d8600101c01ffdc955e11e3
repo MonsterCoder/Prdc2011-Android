@@ -6,7 +6,6 @@ sessionStore =new Ext.data.JsonStore({
 								        });
 								        
 prdc.views.SessionList = Ext.extend(Ext.Panel, {
-    layout: 'fit',
     scroll: 'vertical',
     initComponent: function(){
 
@@ -23,6 +22,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
                         reverse: true,
                         scope: this,
                         after: function(){
+                        	sessions.clear();
                             this.destroy();
                         }
                     });
@@ -31,7 +31,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
         }];
        
        this.list = new Ext.List({
-            itemTpl: '<div class="x-list-item-body"><div class="title"><h3>{title}</h3> <h4>{presenter}, {style}</h4></div> <div class="icon">  </div></div>',
+            itemTpl: '<div >{title} <br> {presenter} <br>{style}<div class="x-list-disclosure"></div></div>',
             store: sessionStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
@@ -57,9 +57,6 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
      		 }
      },
      loadStore: function(){
-	    var me = this;
-	    me.setLoading(true); 
-	      
         this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
         Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
        	
@@ -68,9 +65,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 						     method: "GET",
 						     success: function(res, request) {             
 						                    if (res) {
-						                                  result = Ext.util.JSON.decode(res.responseText);  
-						                                  sessionStore.remove(sessions);
-						                                  sessions.length = 0;  
+						                                  result = Ext.util.JSON.decode(res.responseText);     
 						                          		  for (var i = 0; i < result.length; i++) {
 							                                        session = Ext.ModelMgr.create({
 							                                         			   id: result[i]['Id'],
@@ -89,12 +84,10 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 						               		}
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
-						                    };
-						                    me.setLoading(false); 
+						                    }
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 me.setLoading(false); 
 						     }
 		});  
 		

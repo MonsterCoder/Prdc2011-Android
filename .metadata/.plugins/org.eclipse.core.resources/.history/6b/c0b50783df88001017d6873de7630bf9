@@ -11,7 +11,7 @@ speakerStore =new Ext.data.JsonStore({
 
 prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
     layout: 'card',
-	scroll: 'vertical',
+
     initComponent: function() {		
         var toolbarBase = {
             xtype: 'toolbar',
@@ -21,7 +21,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
         this.list = new Ext.List({
             grouped: true,
             indexBar: false,
-            itemTpl: '<tpl if="picture"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl> <div class="speaker_title"><h3>{firstName} {lastName}, {location}</h3><h4>{company}</h4></div>',
+            itemTpl: '<div class="x-speaker-list-item"><div class="avatar"><tpl if="picture"><img src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl></div><h3>{firstName} {lastName}</h3><h4>{company}</h4></div>',
             store: speakerStore,
             listeners: {
                 selectionchange: {fn: this.onSelect, scope: this}
@@ -47,9 +47,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
         }
     },
     loadStore: function(){
-        var me  = this.list;
-		me.setLoading(true); 
-        
+        this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
         Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
         Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Speakers?format=json',
@@ -81,15 +79,14 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
 						               		}
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
-						                    };
-						                    me.setLoading(false);
+						                    }
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 me.setLoading(false);
-						                                 
 						     }
 		 });  
+        
+         this.list.el.unmask();
     }
     
 });
