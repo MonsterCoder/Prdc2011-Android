@@ -13,11 +13,11 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
             itemTpl: '<tpl if="picture"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl> <div class="speaker_title"><h3>{firstName} {lastName}, {location}</h3><h4>{company}</h4></div>',
             store: speakerStore,
             listeners: {
-                selectionchange: {fn: this.onSelect, scope: this}
+                selectionchange: {fn: this.onSelect, this.onLoadStore, scope: this}
             }
         });
               
-        this.list.on('afterrender', this.onLoadStore, this);
+        this.list.on('afterrender', , this);
         
         this.items = [this.list];
         this.dockedItems = toolbarBase;
@@ -36,8 +36,8 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
         }
     },
     onLoadStore: function() {
-    	if (speakers.length == 0) {
-    		loadSpeakerStore(this.list);
+    	if (Speaker.length == 0) {
+    		loadSpeakerStore();
     	}
     }
 });

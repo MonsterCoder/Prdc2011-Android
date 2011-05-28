@@ -17,7 +17,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
             }
         });
               
-        this.list.on('afterrender', this.onLoadStore, this);
+        this.list.on('afterrender', loadSpeakerStore, this);
         
         this.items = [this.list];
         this.dockedItems = toolbarBase;
@@ -34,11 +34,6 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
             
             this.setActiveItem(bioCard, 'slide');
         }
-    },
-    onLoadStore: function() {
-    	if (speakers.length == 0) {
-    		loadSpeakerStore(this.list);
-    	}
     }
 });
 

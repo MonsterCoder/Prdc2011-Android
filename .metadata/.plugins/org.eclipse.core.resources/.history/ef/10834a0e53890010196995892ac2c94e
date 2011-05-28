@@ -21,8 +21,7 @@ trackStore =new Ext.data.JsonStore({
 								            data :  tracks
 								        });								        							        
 				        
-loadSpeakerStore = function(ui){   
-		ui.setLoading(true);
+loadSpeakerStore = function(){   
         Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
         Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Speakers?format=json',
@@ -55,20 +54,16 @@ loadSpeakerStore = function(ui){
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
 						                    };
-						                    
-						                    ui.setLoading(false);
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 ui.setLoading(false);
 						                                 
 						     }
 		 });  
     };
     								        
 
- loadSessionsStore = function(ui){
- 		ui.setLoading(true);
+ loadSessionsStore = function(){
         Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
        	
         Ext.Ajax.request({
@@ -98,18 +93,14 @@ loadSpeakerStore = function(ui){
 						               		else {
 						                            alert('There was an error retrieving the data.');					               		
 						                    };
-						                    ui.setLoading(false);
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                  ui.setLoading(false);
 						     }
 		});  
 };
 
- loadTrackStore = function(ui){
-  		ui.setLoading(true);
-        Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
+ loadTrackStore = function(){
        	Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Tracks?format=json',
 						     method: "GET",
@@ -134,11 +125,11 @@ loadSpeakerStore = function(ui){
 						                            alert('There was an error retrieving the data.');				               		
 						                    };
 						                     
-						                   ui.setLoading(false);
+						                   
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 ui.setLoading(false);
+						                                 
 						     }
 		});  
 		

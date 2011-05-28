@@ -107,9 +107,7 @@ loadSpeakerStore = function(ui){
 		});  
 };
 
- loadTrackStore = function(ui){
-  		ui.setLoading(true);
-        Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
+ loadTrackStore = function(){
        	Ext.Ajax.request({
 						     url: 'http://prairiedevcon.com/Tracks?format=json',
 						     method: "GET",
@@ -134,11 +132,11 @@ loadSpeakerStore = function(ui){
 						                            alert('There was an error retrieving the data.');				               		
 						                    };
 						                     
-						                   ui.setLoading(false);
+						                   
 						     },
 						     failure: function(res, request){
 						                                 alert('Failed: ', res);
-						                                 ui.setLoading(false);
+						                                 
 						     }
 		});  
 		

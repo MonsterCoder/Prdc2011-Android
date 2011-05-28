@@ -36,8 +36,8 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
         }
     },
     onLoadStore: function() {
-    	if (speakers.length == 0) {
-    		loadSpeakerStore(this.list);
+    	if (Speakers.length == 0) {
+    		loadSpeakerStore();
     	}
     }
 });

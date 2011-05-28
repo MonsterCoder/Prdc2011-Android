@@ -15,7 +15,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
             }
         });
         
-        this.list.on('afterrender', this.loadStore, this);
+        this.list.on('afterrender', loadTrackStore, this);
         
         this.items = [this.list];
         
@@ -34,12 +34,7 @@ prdc.views.TrackList = Ext.extend(Ext.Panel, {
 													            
 													            this.setActiveItem(track, 'slide');
 													        }		   
-     },
-     loadStore : function() {
-     	if (tracks.length === 0) {
-     		loadTrackStore(this.list);
-     	}
-     }
+     }  
 });
 
 Ext.reg('tracklist', prdc.views.TrackList);
