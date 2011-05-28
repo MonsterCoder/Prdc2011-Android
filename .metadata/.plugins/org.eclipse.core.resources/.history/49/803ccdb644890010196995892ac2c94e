@@ -11,7 +11,6 @@
 		<script type="text/javascript" src="sencha/sencha-touch.js"></script>
 		<script type="text/javascript" src="src/index.js"></script>
 		<script type="text/javascript" src="src/Models.js"></script>
-		<script type="text/javascript" src="src/Storages.js"></script>
 		<script type="text/javascript" src="src/SpeakerDetail.js"></script>
 		<script type="text/javascript" src="src/SpeakerList.js"></script>
 		<script type="text/javascript" src="src/SessionDetail.js"></script>

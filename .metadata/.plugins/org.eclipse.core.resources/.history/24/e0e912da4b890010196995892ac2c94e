@@ -31,7 +31,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
             }
         });
               
-        this.list.on('afterrender', loadSessionsStore, this);
+        this.list.on('afterrender', this.loadStore, this);
         
         this.items = [this.list];
          

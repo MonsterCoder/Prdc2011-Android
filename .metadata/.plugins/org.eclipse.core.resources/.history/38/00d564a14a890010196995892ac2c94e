@@ -17,7 +17,7 @@ prdc.views.SpeakerList = Ext.extend(Ext.Panel, {
             }
         });
               
-        this.list.on('afterrender', loadSpeakerStore, this);
+        this.list.on('afterrender', this.loadStore, this);
         
         this.items = [this.list];
         this.dockedItems = toolbarBase;

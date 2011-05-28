@@ -1,0 +1,106 @@
+sessions = [];
+
+sessionStore =new Ext.data.JsonStore({
+								            model: 'Session',					
+								            data :  sessions
+								        });
+								        
+prdc.views.SessionList = Ext.extend(Ext.Panel, {
+    layout: 'fit',
+    scroll: 'vertical',
+    initComponent: function(){
+
+       this.dockedItems = [{
+            xtype: 'toolbar',
+            title: this.record.data.name,
+            items: [{
+                ui: 'back',
+                text: 'Back',
+                scope: this,
+                handler: function(){
+                    this.ownerCt.setActiveItem(this.prevCard, {
+                        type: 'slide',
+                        reverse: true,
+                        scope: this,
+                        after: function(){
+                            this.destroy();
+                        }
+                    });
+                }
+            }]
+        }];
+       
+       this.list = new Ext.List({
+            itemTpl: '<div class="x-list-item-body"><div class="title"><h3>{title}</h3> <h4>{presenter}, {style}</h4></div> <div class="icon">  </div></div>',
+            store: sessionStore,
+            listeners: {
+                selectionchange: {fn: this.onSelect, scope: this}
+            }
+        });
+              
+        this.list.on('afterrender', this.loadStore, this);
+        
+        this.items = [this.list];
+         
+        prdc.views.SessionList.superclass.initComponent.call(this);
+    },
+
+    onSelect: function(sel, records){
+              if (records[0] !== undefined) {
+            
+													        var sd = new prdc.views.SessionDetail({
+													                prevCard: this.listpanel,
+													                record: records[0]
+													        });
+													            
+													        this.ownerCt.setActiveItem(sd, 'slide');	    	   
+     		 }
+     },
+     loadStore: function(){
+	    var me = this;
+	    me.setLoading(true); 
+	      
+        this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
+        Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
+       	
+        Ext.Ajax.request({
+						     url: 'http://prairiedevcon.com/Sessions/'+ this.record.data.key +'?format=json',
+						     method: "GET",
+						     success: function(res, request) {             
+						                    if (res) {
+						                                  result = Ext.util.JSON.decode(res.responseText);  
+						                                  sessionStore.remove(sessions);
+						                                  sessions.length = 0;  
+						                          		  for (var i = 0; i < result.length; i++) {
+							                                        session = Ext.ModelMgr.create({
+							                                         			   id: result[i]['Id'],
+																				   presenter: result[i]['Presenter'],
+																				   style: result[i]['Style'],
+																				   title: result[i]['Title'],
+																				   track: result[i]['Track'],
+																				   year: result[i]['Year'],
+																				   abstract: result[i]['Abstract']
+																				}, 'Session'); 
+																				 
+																	sessions.push(session);
+														  };
+														  
+						                                  sessionStore.add.apply(sessionStore, sessions); 
+						               		}
+						               		else {
+						                            alert('There was an error retrieving the data.');					               		
+						                    };
+						                    me.setLoading(false); 
+						     },
+						     failure: function(res, request){
+						                                 alert('Failed: ', res);
+						                                 me.setLoading(false); 
+						     }
+		});  
+		
+        this.list.el.unmask();
+     }
+     
+});
+
+Ext.reg('sessionList', prdc.views.SessionList);
