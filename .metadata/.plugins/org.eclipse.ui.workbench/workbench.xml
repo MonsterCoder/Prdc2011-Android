@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="13" version="2.0">
+<workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
 <window height="769" maximized="true" width="1020" x="494" y="400">
 <fastViewData fastViewLocation="1024"/>
@@ -34,6 +34,11 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
@@ -42,9 +47,29 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Prdc2011/assets/www/src/App.js"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="528" selectionTopPixel="346"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.ui.DefaultTextEditor" name="SpeakerList.js" partName="SpeakerList.js" path="/home/georgec/workplace/Prdc2011-Android/Prdc2011/assets/www/src/SpeakerList.js" title="SpeakerList.js" tooltip="Prdc2011/assets/www/src/SpeakerList.js" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.ui.DefaultTextEditor" name="SpeakerList.js" partName="SpeakerList.js" path="/home/georgec/workplace/Prdc2011-Android/Prdc2011/assets/www/src/SpeakerList.js" title="SpeakerList.js" tooltip="Prdc2011/assets/www/src/SpeakerList.js" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Prdc2011/assets/www/src/SpeakerList.js"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="370" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="382" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="TrackList.js" partName="TrackList.js" path="/home/georgec/workplace/Prdc2011-Android/Prdc2011/assets/www/src/TrackList.js" title="TrackList.js" tooltip="Prdc2011/assets/www/src/TrackList.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Prdc2011/assets/www/src/TrackList.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="159" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="TwitterList.js" partName="TwitterList.js" path="/home/georgec/workplace/Prdc2011-Android/Prdc2011/assets/www/src/TwitterList.js" title="TwitterList.js" tooltip="Prdc2011/assets/www/src/TwitterList.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Prdc2011/assets/www/src/TwitterList.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="465" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="SessionList.js" partName="SessionList.js" path="/home/georgec/workplace/Prdc2011-Android/Prdc2011/assets/www/src/SessionList.js" title="SessionList.js" tooltip="Prdc2011/assets/www/src/SessionList.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Prdc2011/assets/www/src/SessionList.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="23" selectionOffset="240" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.ui.DefaultTextEditor" name="SessionDetail.js" partName="SessionDetail.js" path="/home/georgec/workplace/Prdc2011-Android/Prdc2011/assets/www/src/SessionDetail.js" title="SessionDetail.js" tooltip="Prdc2011/assets/www/src/SessionDetail.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Prdc2011/assets/www/src/SessionDetail.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="31" selectionOffset="761" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="SpeakerDetail.js" partName="SpeakerDetail.js" path="/home/georgec/workplace/Prdc2011-Android/Prdc2011/assets/www/src/SpeakerDetail.js" title="SpeakerDetail.js" tooltip="Prdc2011/assets/www/src/SpeakerDetail.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Prdc2011/assets/www/src/SpeakerDetail.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="741" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -230,6 +255,11 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Prdc2011/src/Prdc2011/Android/Home.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Prdc2011/assets/www/src/App.js"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Prdc2011/assets/www/src/SpeakerList.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Prdc2011/assets/www/src/TrackList.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Prdc2011/assets/www/src/TwitterList.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Prdc2011/assets/www/src/SessionList.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Prdc2011/assets/www/src/SessionDetail.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Prdc2011/assets/www/src/SpeakerDetail.js"/>
 </editors>
 <item historyLabel="Home.java" index="0">
 <position info="not_deleted" x="358" y="0"/>
@@ -241,8 +271,86 @@
 <item historyLabel="App.js" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="SpeakerList.js" index="4">
+<item historyLabel="SpeakerList.js" index="4">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TrackList.js" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TwitterList.js" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SpeakerList.js" index="4">
+<position info="not_deleted" x="380" y="0"/>
+</item>
+<item historyLabel="SessionList.js" index="7">
+<position info="not_deleted" x="225" y="38"/>
+</item>
+<item historyLabel="SessionDetail.js" index="8">
+<position info="not_deleted" x="0" y="1061"/>
+</item>
+<item historyLabel="SessionList.js" index="7">
+<position info="not_deleted" x="291" y="0"/>
+</item>
+<item historyLabel="SpeakerDetail.js" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SpeakerList.js" index="4">
+<position info="not_deleted" x="382" y="0"/>
+</item>
+<item historyLabel="TrackList.js" index="5">
+<position info="not_deleted" x="255" y="0"/>
+</item>
+<item historyLabel="TwitterList.js" index="6">
+<position info="not_deleted" x="64" y="42"/>
+</item>
+<item historyLabel="TrackList.js" index="5">
+<position info="not_deleted" x="159" y="0"/>
+</item>
+<item historyLabel="SpeakerList.js" index="4">
+<position info="not_deleted" x="382" y="0"/>
+</item>
+<item historyLabel="TrackList.js" index="5">
+<position info="not_deleted" x="159" y="0"/>
+</item>
+<item historyLabel="TwitterList.js" index="6">
+<position info="not_deleted" x="64" y="42"/>
+</item>
+<item historyLabel="SessionList.js" index="7">
+<position info="not_deleted" x="225" y="0"/>
+</item>
+<item historyLabel="SessionDetail.js" index="8">
+<position/>
+</item>
+<item historyLabel="SpeakerDetail.js" index="9">
+<position info="not_deleted" x="741" y="0"/>
+</item>
+<item historyLabel="TwitterList.js" index="6">
+<position info="not_deleted" x="2476" y="0"/>
+</item>
+<item historyLabel="SpeakerList.js" index="4">
+<position info="not_deleted" x="382" y="0"/>
+</item>
+<item historyLabel="TrackList.js" index="5">
+<position info="not_deleted" x="159" y="0"/>
+</item>
+<item historyLabel="SessionList.js" index="7">
+<position info="not_deleted" x="225" y="0"/>
+</item>
+<item historyLabel="SessionDetail.js" index="8">
+<position info="not_deleted" x="55" y="0"/>
+</item>
+<item historyLabel="SpeakerDetail.js" index="9">
+<position info="not_deleted" x="741" y="0"/>
+</item>
+<item historyLabel="SessionDetail.js" index="8">
+<position info="not_deleted" x="64" y="3"/>
+</item>
+<item historyLabel="SessionList.js" index="7">
+<position info="not_deleted" x="240" y="23"/>
+</item>
+<item active="true" historyLabel="SessionDetail.js" index="8">
+<position info="not_deleted" x="64" y="3"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -261,6 +369,21 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="SpeakerDetail.js" tooltip="Prdc2011/assets/www/src/SpeakerDetail.js">
+<persistable path="/Prdc2011/assets/www/src/SpeakerDetail.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="SessionDetail.js" tooltip="Prdc2011/assets/www/src/SessionDetail.js">
+<persistable path="/Prdc2011/assets/www/src/SessionDetail.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="SessionList.js" tooltip="Prdc2011/assets/www/src/SessionList.js">
+<persistable path="/Prdc2011/assets/www/src/SessionList.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="TwitterList.js" tooltip="Prdc2011/assets/www/src/TwitterList.js">
+<persistable path="/Prdc2011/assets/www/src/TwitterList.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="TrackList.js" tooltip="Prdc2011/assets/www/src/TrackList.js">
+<persistable path="/Prdc2011/assets/www/src/TrackList.js"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="SpeakerList.js" tooltip="Prdc2011/assets/www/src/SpeakerList.js">
 <persistable path="/Prdc2011/assets/www/src/SpeakerList.js"/>
 </file>

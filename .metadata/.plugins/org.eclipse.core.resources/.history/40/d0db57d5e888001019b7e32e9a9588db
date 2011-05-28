@@ -23,7 +23,6 @@ prdc.views.SessionDetail = Ext.extend(Ext.Panel, {
         
         this.items = [{
             styleHtmlContent: true,
-            scroll: 'vertical',
             tpl: new Ext.XTemplate('<h3>{title}</h3> {presenter}, {style} {abstract}'),
             data: this.record.data
         }];
