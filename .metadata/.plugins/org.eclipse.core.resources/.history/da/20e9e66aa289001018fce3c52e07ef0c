@@ -24,7 +24,14 @@ prdc.views.SpeakerDetail = Ext.extend(Ext.Panel, {
 
         this.items = [{
             styleHtmlContent: true,
-            tpl: new Ext.XTemplate('<div class="speaker_details"><tpl if="picture"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl> <div><h3>{firstName} {lastName}, <small>{location}</small></h3><h4>{company}</h4> </div></div> <p>{bio}</p> '),
+            tpl: new Ext.XTemplate('<div class="speaker_details">
+            							<tpl if="picture"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" alt="{picture}" /></tpl> 
+            							<div>
+            								<h3>{firstName} {lastName}, <small>{location}</small></h3><h4>{company}</h4> <tpl if="email">
+            								<img src="/Resources/icon_email.png" alt="{email}" /></tpl> 
+            							</div>
+            						</div> 
+            						<p>{bio}</p>'),
             data: this.record.data
         }];
 

@@ -38,7 +38,10 @@
 	   p {
 	       font-size: 12px;
 	       line-height: 16px;
+	       color: rgba(0,0,0,1);
+	       text-align: left;
 	   }
+	   
 	   .card1 .x-panel-body {
 	       background-color: #ccc;
 	   }
@@ -112,6 +115,7 @@
             font-weight:bold;
             overflow:hidden;
             text-overflow:ellipsis;
+            font-size: 13px;
         }
         
         .x-list-item-body  h4 {
@@ -141,15 +145,7 @@
                         border-radius:0.5em;
                         width:38px;height:38px;
                     }
-   .speaker_title {
-            overflow:hidden;
-            text-overflow:ellipsis;
-            display:block;
-            white-space:nowrap;
-            overflow:hidden;       
-            margin-left:13px;
-            text-align: left;
-   }
+
    
    .tweet {
             display:block;
@@ -162,4 +158,53 @@
             padding-right: 8px;
    }
    
+   .details h3 {
+            font-size: 13px;
+   }
+   
+   .details h4 {
+            font-size: 12px;
+   }
+
+   .speaker_list_item {
+       margin-left:10px;
+       text-align: left;
+   }
+   
+   .speaker_details {
+            display:block;
+            white-space:nowrap;     
+            text-align: center;
+            margin-left:5px;
+            margin-bottom: 5px;
+   }
+	   
+                       .speaker_details h3 {
+                                font-size: 10px;CC;
+                       }
+                       
+                       .speaker_details h4 {
+                                font-size: 10px;
+                                color: rgba(0,0,0,.8);
+                       }
+                       
+
+                       .speaker_details .avata_img{
+                        float:left;
+                        width:60px;
+                        height:60px;
+                        background-size:auto
+                        }
+                        
+                        .speaker_details img{ 
+                        width:28px;
+                        height:28px;
+                        background-size:auto
+                        }
+                    
+                    	                       
+                     .speaker_details small{
+                              font-size: 9px;
+                    }
+               
    
