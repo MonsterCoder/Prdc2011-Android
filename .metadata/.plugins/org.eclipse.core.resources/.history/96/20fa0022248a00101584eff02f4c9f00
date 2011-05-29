@@ -42,10 +42,11 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
      	     if (e.target.className === 'star') {
      	     	e.target.className = 'favourate';
      	     	return;
-     	     } else if (e.target.className === 'favourate') {
+     	     } else if (e.target.className === 'favourate) {
      	     	e.target.className ='star';
      	     	return;
      	     }
+     	     
      	     
      	     if (sessions[index] !== undefined) {
             
