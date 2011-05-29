@@ -1,5 +1,5 @@
 prdc.views.TweetList = Ext.extend(Ext.Panel, {
-    hashtag: '#PRDC11+%3A',
+    hashtag: 'PrairieDevCon',
     layout: 'fit',
     scroll: 'vertical',
     initComponent: function(){
@@ -81,7 +81,7 @@ prdc.views.TweetList = Ext.extend(Ext.Panel, {
         
         this.list.store.load({
             params: {
-                q: this.hashtag,
+                q: "PrairieDevCon"
             },
             callback: function(data){
                 this.list.el.unmask();

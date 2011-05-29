@@ -1,5 +1,5 @@
 prdc.views.TweetList = Ext.extend(Ext.Panel, {
-    hashtag: '#PRDC11+%3A',
+    hashtag: '',
     layout: 'fit',
     scroll: 'vertical',
     initComponent: function(){
@@ -35,7 +35,7 @@ prdc.views.TweetList = Ext.extend(Ext.Panel, {
         this.dockedItems = toolbarBase;
         
         this.list = new Ext.List({
-            itemTpl: new Ext.XTemplate('<tpl if="profile_image_url"> <img class="avata_img" src="{profile_image_url}"/> </tpl><div class="tweet"> <h3>{from_user}<tpl if="to_user"> &raquo; {to_user}</tpl></h3> <p>{text:this.linkify}</p> </div> ', {
+            itemTpl: new Ext.XTemplate('<tpl if="profile_image_url"> <img class="avata_img" src="{profile_image_url}"/> </tpl><div class="tweet"> <h3>{from_user}<tpl if="to_user"> &raquo; {to_user}</tpl></h3> {text:this.linkify} </div>', {
                 linkify: function(value) {
                     return value.replace(/(http:\/\/[^\s]*)/g, "<span class=\"link\" href=\"$1\">$1</span>");
                 }
@@ -77,14 +77,15 @@ prdc.views.TweetList = Ext.extend(Ext.Panel, {
     },
     
     loadStore: function(){
-  		this.list.el.mask('<span class="top"></span><span class="right"></span><span class="bottom"></span><span class="left"></span>', 'x-spinner', false);
+        var me  = this.list;
+		me.setLoading(true); 
         
         this.list.store.load({
             params: {
-                q: this.hashtag,
+                q: this.hashtag
             },
             callback: function(data){
-                this.list.el.unmask();
+                me.setLoading(false); 
             },
             scope: this
         });
