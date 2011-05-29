@@ -40,7 +40,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
      onListItemTap : function(list, index, item, e) {
      	     
      	     if (e.target.className === 'star') {
-     	     	alert("implement favourate");
+     	     	overaly("favourate");
      	     	return;
      	     }
      	     

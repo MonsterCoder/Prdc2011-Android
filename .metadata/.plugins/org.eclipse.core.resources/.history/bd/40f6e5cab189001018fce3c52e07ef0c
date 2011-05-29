@@ -24,11 +24,13 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
         }];
        
        this.list = new Ext.List({
-            itemTpl: '<div class="x-list-item-body"><div class="star" id="session_checkbox"> </div><div class="title"><h3>{title}</h3> <h4>{presenter}, {style}</h4></div> <div class="icon">  </div></div>',
-            store: sessionStore
+            itemTpl: '<div class="x-list-item-body"><div class="star"> </div><div class="title"><h3>{title}</h3> <h4>{presenter}, {style}</h4></div> <div class="icon">  </div></div>',
+            store: sessionStore,
+            listeners: {
+                selectionchange: {fn: this.onSelect, scope: this}
+            }
         });
               
-        this.list.on('afterrender', loadSessionsStore, this);
         this.list.on('itemtap', this.onListItemTap, this); 
         
         this.items = [this.list];
@@ -36,20 +38,23 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
         prdc.views.SessionList.superclass.initComponent.call(this);
     },
 
-
-     onListItemTap : function(list, index, item, e) {
-     	     
-     	     if (e.target.className === 'star') {
-     	     	alert("implement favourate");
-     	     	return;
-     	     }
-     	     
-     	     
-     	     if (sessions[index] !== undefined) {
+    onSelect: function(sel, records){
+              if (records[0] !== undefined) {
             
 													        var sd = new prdc.views.SessionDetail({
 													                prevCard: this.listpanel,
-													                record: sessions[index]
+													                record: records[0]
+													        });
+													            
+													        this.ownerCt.setActiveItem(sd, 'slide');	    	   
+     		 }
+     },
+     onListItemTap : function(list, index, item, event) {
+              if (sessions[0] !== undefined) {
+            
+													        var sd = new prdc.views.SessionDetail({
+													                prevCard: this.listpanel,
+													                record: sessions[0]
 													        });
 													            
 													        this.ownerCt.setActiveItem(sd, 'slide');	    	   
