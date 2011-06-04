@@ -1,0 +1,73 @@
+prdc.views.SessionList = Ext.extend(Ext.Panel, {
+    layout: 'fit',
+    scroll: 'vertical',
+    initComponent: function(){
+
+       this.dockedItems = [{
+            xtype: 'toolbar',
+            title: this.record.data.name,
+            items: [{
+                ui: 'back',
+                text: 'Back',
+                scope: this,
+                handler: function(){
+                    this.ownerCt.setActiveItem(this.prevCard, {
+                        type: 'slide',
+                        reverse: true,
+                        scope: this,
+                        after: function(){
+                            this.destroy();
+                        }
+                    });
+                }
+            }]
+        }];
+       
+       this.list = new Ext.List({
+            itemTpl: '<div class="x-list-item-body"><div class="star" id="session_checkbox"> </div><div class="title"><h3>{title}</h3> <h4>{presenter}, {style}</h4></div> <div class="icon">  </div></div>',
+            store: sessionStore
+        });
+              
+        this.list.on('afterrender', loadSessionsStore, this);
+        this.list.on('itemtap', this.onListItemTap, this); 
+        
+        this.items = [this.list];
+         
+        prdc.views.SessionList.superclass.initComponent.call(this);
+    },
+
+
+     onListItemTap : function(list, index, item, e) {
+     	      if (sessions[index] !== undefined) {
+     	      					   
+					     	     if (e.target.className === 'star') {
+					     	     	e.target.className = 'favourate';
+					     	     	FavourateSessionsStore.add(sessions[index]);
+					     	     	alert(FavourateSessionsStore.data.items.length);
+					     	     	for (i =0; i <FavourateSessionsStore.data.items.length; i++) {
+					     	     		alert(FavourateSessionsStore.getAt(i).toString());
+					     	     	};
+					     	     	FavourateSessionsStore.save();
+					     	     	FavourateSessionsStore.sync();
+					     	     	return;
+					     	     } else if (e.target.className === 'favourate') {
+					     	     	e.target.className ='star';
+					     	     	FavourateSessionsStore.remove(sessions[index]);		
+					     	     	FavourateSessionsStore.save();
+					     	     	FavourateSessionsStore.sync();		     	     	
+					     	     	return;
+					     	     }
+					     	     
+     	    
+            
+						        var sd = new prdc.views.SessionDetail({
+						                prevCard: this.listpanel,
+						                record: sessions[index]
+						        });
+						            
+						        this.ownerCt.setActiveItem(sd, 'slide');	    	   
+     		 }
+     }   
+});
+
+Ext.reg('sessionList', prdc.views.SessionList);

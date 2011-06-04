@@ -3,7 +3,7 @@ Ext.regModel('Speaker', {
 });
 
 Ext.regModel('Session', {
-    fields: ['Id', 'Presenter', 'Style', 'Title', 'Track', 'Abstract', 'Year']
+    fields: ['Id', 'Presenter', 'Style', 'Title', 'Track', 'Abstract', 'Year', 'IsFavourate']
 });
 
 Ext.regModel('Track', {
@@ -14,3 +14,10 @@ Ext.regModel('Tweet', {
     fields: ['id', 'text', 'to_user_id', 'from_user', 'created_at', 'profile_image_url']
 });     
 
+Ext.regModel('Favourate', {
+ 	fields: [{name: 'id', type: 'string'}, {name: "session_title", type: 'string'}],
+ 	proxy: {
+ 		type: 'localstorage',
+ 		id: 'favourateSessions'
+ 	}
+});

@@ -24,7 +24,7 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
         }];
        
        this.list = new Ext.List({
-            itemTpl: '<div class="x-list-item-body"><div class="star" id="session_checkbox"> </div><div class="title"><h3>{title}</h3> <h4>{presenter}, {style}</h4></div> <div class="icon">  </div></div>',
+            itemTpl: '<div class="x-list-item-body"><div <tpl if="IsFavourate"> class="favourate"</tpl>  <tpl if="IsFavourate == false"> class="star"</tpl> id="session_checkbox"> </div><div class="title"><h3>{title}</h3> <h4>{presenter}, {style}</h4></div> <div class="icon">  </div></div>',
             store: sessionStore
         });
               
@@ -38,23 +38,35 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 
 
      onListItemTap : function(list, index, item, e) {
-     	     
-     	     if (e.target.className === 'star') {
-     	     	e.target.className = 'favourate';
-     	     	return;
-     	     } else if (e.target.className === 'favourate') {
-     	     	e.target.className ='star';
-     	     	return;
-     	     }
-     	     
-     	     if (sessions[index] !== undefined) {
-            
-													        var sd = new prdc.views.SessionDetail({
-													                prevCard: this.listpanel,
-													                record: sessions[index]
-													        });
-													            
-													        this.ownerCt.setActiveItem(sd, 'slide');	    	   
+     	      if (sessions[index] !== undefined) {
+								 var favourateModel = Ext.ModelMgr.getModel('Favourate');
+								
+					     	     if (e.target.className === 'star') {
+					     	     	
+					     	     	favt = new favourateModel({id: sessions[index].get('id'), session: sessions[index].get('title')});
+					     	     	
+					     	     	favt.save({
+					     	     		success: function(favt) {
+					     	     			e.target.className = 'favourate';					     	     		
+					     	     		}
+					     	     	})
+				
+					     	     	FavouratesStore.sync();
+					     	     	return;
+					     	     } else if (e.target.className === 'favourate') {
+					     	     	unfavt = new favourateModel({id: sessions[index].get('id'), session: sessions[index].get('title')});		     	     	
+					     	     	FavouratesStore.remove(unfavt);
+					     	     	FavouratesStore.sync();		
+					     	     	e.target.className = 'star';     	     	
+					     	     	return;
+					     	     }
+         
+						        var sd = new prdc.views.SessionDetail({
+						                prevCard: this.listpanel,
+						                record: sessions[index]
+						        });
+						            
+						        this.ownerCt.setActiveItem(sd, 'slide');	    	   
      		 }
      }   
 });

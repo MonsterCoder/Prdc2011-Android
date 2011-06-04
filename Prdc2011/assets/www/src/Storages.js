@@ -11,14 +11,23 @@ speakerStore =new Ext.data.JsonStore({
 										    }
 								        });
 								        
+FavouratesStore =new Ext.data.Store({
+								            model: 'Favourate',						          
+								            autoSave : true,
+								   });	
+								        
+FavouratesStore.load();											        
+								        
 sessionStore =new Ext.data.JsonStore({
 								            model: 'Session',					
 								            data :  sessions
 								        });	
 								        
+
+			        								        
 trackStore =new Ext.data.JsonStore({
 								            model: 'Track',					
-								            data :  tracks
+								            data :  tracks,
 								        });								        							        
 				        
 loadSpeakerStore = function(ui){   
@@ -69,6 +78,7 @@ loadSpeakerStore = function(ui){
 
  loadSessionsStore = function(ui){
  		ui.setLoading(true);
+ 
         Ext.Ajax.defaultHeaders = {'Accept': 'application/json' } ; 
        	
         Ext.Ajax.request({
@@ -79,17 +89,32 @@ loadSpeakerStore = function(ui){
 						                                  result = Ext.util.JSON.decode(res.responseText);  
 						                                  sessionStore.remove(sessions);
 						                                  sessions.length = 0;  
-						                          		  for (var i = 0; i < result.length; i++) {
-							                                        session = Ext.ModelMgr.create({
+
+						                          		  for (var i = 0; i < result.length; i++) {		
+						                          		  					                          		  															
+																	  if (FavouratesStore.find('id', result[i]['Id'])!== -1 ) {
+							                                        		session = Ext.ModelMgr.create({
 							                                         			   id: result[i]['Id'],
 																				   presenter: result[i]['Presenter'],
 																				   style: result[i]['Style'],
 																				   title: result[i]['Title'],
 																				   track: result[i]['Track'],
 																				   year: result[i]['Year'],
-																				   abstract: result[i]['Abstract']
+																				   abstract: result[i]['Abstract'],
+																				   IsFavourate: true						
 																				}, 'Session'); 
-																				 
+																	  } else {
+																	  		session = Ext.ModelMgr.create({
+							                                         			   id: result[i]['Id'],
+																				   presenter: result[i]['Presenter'],
+																				   style: result[i]['Style'],
+																				   title: result[i]['Title'],
+																				   track: result[i]['Track'],
+																				   year: result[i]['Year'],
+																				   abstract: result[i]['Abstract']					
+																				}, 'Session'); 
+																	  }
+																																																	 
 																	sessions.push(session);
 														  };
 														  
