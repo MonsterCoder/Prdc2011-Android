@@ -16,7 +16,7 @@ prdc.views.LocationMap = Ext.extend(Ext.Panel, {
                 scope: this,
                 handler: function(){    
                     Ext.Msg.confirm('External Link', 'Open in Google Maps?', function(res){
-                        if (res == 'yes') window.location = 'http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=1919+Saskatchewan+Drive,+Regina,+Saskatchewan,+Canada&aq=1&sll=37.0625,-95.677068&sspn=49.223579,113.818359&ie=UTF8&hq=&hnear=1919+Saskatchewan+Dr,+Regina,+Saskatchewan+S4P+4A5,+Canada&z=16';
+                        if (res == 'yes') window.location = this.permLink;
                     }, this);
                 }
             }]
