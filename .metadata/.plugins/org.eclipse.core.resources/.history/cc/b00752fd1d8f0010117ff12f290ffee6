@@ -61,7 +61,6 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 					       	     	if (idx > -1) {
 					       	     		FavouratesStore.remove(FavouratesStore.getAt(idx));
 					       	     		FavouratesStore.sync();
-					       	     		e.target.className = 'star';	
 					       	     	}
 									
 

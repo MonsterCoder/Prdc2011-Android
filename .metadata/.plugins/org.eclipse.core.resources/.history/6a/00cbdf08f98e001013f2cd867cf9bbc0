@@ -43,28 +43,23 @@ prdc.views.SessionList = Ext.extend(Ext.Panel, {
 								
 					     	     if (e.target.className === 'star') {
 					     	     	
-					     	     	favt = new favourateModel({session_id: sessions[index].get('id')});
+					     	     	favt = new favourateModel({id: sessions[index].get('id'), session: sessions[index].get('title')});
 
-									favt.save({success: function(favt) {
-														     	     	e.target.className = 'favourate';	
-					     	     										console.log(FavouratesStore.data.length + "favourate session in total")	;
-					     	     										}
-					     	     	});
-					     	     	
+									FavouratesStore.add(favt);
 					     	     	FavouratesStore.sync();
-
+					     	     	e.target.className = 'favourate';	
+					     	     	console.log(FavouratesStore.data.length + "favourate session in total")	
 					     	     	return;
 					     	     } else if (e.target.className === 'favourate') {
-					     	     	console.log(sessions[index].get('id') + " to remove");		    
-					       	     	var idx = FavouratesStore.find('session_id', sessions[index].get('id'));
-					       	     	
-					       	     	if (idx > -1) {
-					       	     		FavouratesStore.remove(FavouratesStore.getAt(idx));
-					       	     		FavouratesStore.sync();
-					       	     		e.target.className = 'star';	
-					       	     	}
-									
+					     	     	var idx = FavouratesStore.find('id', result[i]['Id'])
+					     	     	if (idx  > -1){
+					     	     		FavouratesStore.remove(unfavt);
+					     	     		FavouratesStore.save();
+					     	     		FavouratesStore.sync();		
+					     	     	}	     	     	
 
+					     	     	e.target.className = 'star';     
+					     	     	console.log(FavouratesStore.data.length + "favourate session in total")		     	
 					     	     	return;
 					     	     }
          

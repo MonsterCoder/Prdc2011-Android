@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="org.eclipse.jdt.ui.JavaSearchResultPage">
+	<section name="">
 		<item value="TRUE" key="org.eclipse.jdt.search.resultpage.limit_enabled"/>
 		<item value="1000" key="org.eclipse.jdt.search.resultpage.limit"/>
 	</section>
@@ -9,11 +9,15 @@
 		<item value="TRUE" key="org.eclipse.jdt.search.resultpage.limit_enabled"/>
 		<item value="1000" key="org.eclipse.jdt.search.resultpage.limit"/>
 	</section>
+	<section name="org.eclipse.jdt.ui.JavaSearchResultPage">
+		<item value="TRUE" key="org.eclipse.jdt.search.resultpage.limit_enabled"/>
+		<item value="1000" key="org.eclipse.jdt.search.resultpage.limit"/>
+	</section>
 	<section name="DialogBounds_SearchDialog">
 		<item value="599" key="DIALOG_WIDTH"/>
 		<item value="140" key="DIALOG_Y_ORIGIN"/>
-		<item value="479" key="DIALOG_HEIGHT"/>
 		<item value="678" key="DIALOG_X_ORIGIN"/>
+		<item value="517" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="Search">

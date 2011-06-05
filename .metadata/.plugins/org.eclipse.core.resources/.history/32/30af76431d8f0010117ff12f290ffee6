@@ -15,7 +15,7 @@ Ext.regModel('Tweet', {
 });     
 
 Ext.regModel('Favourate', {
- 	fields: [{name: 'id', type: 'int'}, {name: "session_id", type: 'string'}],
+ 	fields: [{name: 'id', type: 'int'}, {name: "session_title", type: 'string'}],
  	proxy: {
  		type: 'localstorage',
  		id: 'favourateSessions'

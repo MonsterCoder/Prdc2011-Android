@@ -23,7 +23,9 @@ sessionStore =new Ext.data.JsonStore({
 								            model: 'Session',					
 								            data :  sessions
 								        });	
-								        		        								        
+								        
+
+			        								        
 trackStore =new Ext.data.JsonStore({
 								            model: 'Track',					
 								            data :  tracks,
@@ -91,7 +93,7 @@ loadSpeakerStore = function(ui){
 
 						                          		  for (var i = 0; i < result.length; i++) {		
 						                          		  					                          		  															
-																	  if (FavouratesStore.find('session_id', result[i]['Id']) > -1 ) {
+																	  if (FavouratesStore.find('id', result[i]['Id'])!== -1 ) {
 							                                        		session = Ext.ModelMgr.create({
 							                                         			   id: result[i]['Id'],
 																				   presenter: result[i]['Presenter'],
