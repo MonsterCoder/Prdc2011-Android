@@ -219,5 +219,52 @@
                      .speaker_details small{
                               font-size: 9px;
                     }
-               
+  .about {
+       text-align: left;
+  }  
+  
+  .about h {
+            font-weight:bold;
+            font-size: 17px;
+            color: #926D9C;
+  }
+  
+  .about  p {
+	       font-size: 12px;
+	       line-height: 16px;
+	       color: rgba(0,0,0,0.8);
+	       text-align: left;
+  }
+  
+  .about img {
+                        width:58px;
+                        height:58px;
+                        float: left;
+                        margin: 2px;
+                        margin-right: 2px;
+  }
+  
+ .about .authour {
+                        margin-left: 5px;
+        	            text-align: left;
+  }
+  
+.about	   h2 {
+            font-weight:bold;
+            font-size: 12px;
+            
+       }
+       
+ .about	   h3 {
+            font-size: 12px;
+            font-weight:normal;
+
+       }
+        
+ .about      h4 {
+       	    color: rgba(0,0,0,.8);
+            font-weight:small;
+            font-size: 11px;
+        }
+        
    

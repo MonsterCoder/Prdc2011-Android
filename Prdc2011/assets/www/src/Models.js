@@ -21,3 +21,4 @@ Ext.regModel('Favourate', {
  		id: 'favourateSessions'
  	}
 });
+

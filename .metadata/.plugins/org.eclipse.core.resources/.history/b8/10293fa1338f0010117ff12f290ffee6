@@ -1,0 +1,33 @@
+prdc.views.HtmlPage = Ext.extend(Ext.Panel, {
+    autoLoad: 'about.html',
+    scroll: 'vertical',
+    styleHtmlContent: true,
+    initComponent: function(){
+        var toolbarBase = {
+            xtype: 'toolbar',
+            title: this.title
+        };
+        
+        if (this.prevCard !== undefined) {
+            toolbarBase.items = {
+                ui: 'back',
+                text: this.prevCard.title,
+                scope: this,
+                handler: function(){
+                    this.ownerCt.setActiveItem(this.prevCard, { type: 'slide', reverse: true });
+                }
+            }
+        }
+
+        this.dockedItems = toolbarBase;
+		        
+        prdc.views.HtmlPage.superclass.initComponent.call(this);
+        
+        this.html ='<h> Credit</h> <p><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/{picture}" /><div class="speaker_list_item"><h3>George Chen, (MonsterCoder)</h3><h4> </h4></div></p>'
+        
+    }
+});
+
+
+ 
+Ext.reg('htmlpage', prdc.views.HtmlPage);

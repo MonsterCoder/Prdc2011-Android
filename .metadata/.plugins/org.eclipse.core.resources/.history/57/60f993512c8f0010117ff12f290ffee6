@@ -1,0 +1,33 @@
+prdc.views.HtmlPage = Ext.extend(Ext.Panel, {
+    scroll: 'vertical',
+    initComponent: function(){
+        var toolbarBase = {
+            xtype: 'toolbar',
+            title: this.title
+        };
+        
+        if (this.prevCard !== undefined) {
+            toolbarBase.items = {
+                ui: 'back',
+                text: this.prevCard.title,
+                scope: this,
+                handler: function(){
+                    this.ownerCt.setActiveItem(this.prevCard, { type: 'slide', reverse: true });
+                }
+            }
+        }
+        
+        this.dockedItems = toolbarBase;
+        prdc.views.HtmlPage.superclass.initComponent.call(this);
+        
+    },
+    listeners: {
+		afterrender: function(p) {
+			alert('load');
+			this.load({url: "about.html"});
+			
+		}
+	}
+});
+
+Ext.reg('htmlpage', prdc.views.HtmlPage);

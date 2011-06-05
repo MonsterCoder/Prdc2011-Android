@@ -1,0 +1,33 @@
+prdc.views.HtmlPage = Ext.extend(Ext.Panel, {
+    autoLoad: 'about.html',
+    scroll: 'vertical',
+    styleHtmlContent: true,
+    initComponent: function(){
+        var toolbarBase = {
+            xtype: 'toolbar',
+            title: this.title
+        };
+        
+        if (this.prevCard !== undefined) {
+            toolbarBase.items = {
+                ui: 'back',
+                text: this.prevCard.title,
+                scope: this,
+                handler: function(){
+                    this.ownerCt.setActiveItem(this.prevCard, { type: 'slide', reverse: true });
+                }
+            }
+        }
+
+        this.dockedItems = toolbarBase;
+		        
+        prdc.views.HtmlPage.superclass.initComponent.call(this);
+        
+        this.html ='<h> This application created by: </h> <div class = "speaker_details"><img class="avata_img" src="http://a0.twimg.com/profile_images/1350639720/icon_reasonably_small.jpg" /><div class="speaker_list_item"><h3>George Chen, (MonsterCoder)</h3><h4>twitter: Georgec_monster</h4> <h4>email: MonsterCoder@gmail.com</h4></div></div><div  class = "speaker_details"><img class="avata_img" src="http://prairiedevcon.com/Content/imgs/speakers/amirbarylko.jpg" /><div class="speaker_list_item"><h3>Amir Barylko, <a href="http://www.maventhought.com">MavenThought Inc</a></h3><h4>twitter: abarylko</h4> <h4>email: amir@barylko.com</h4></div></div>'
+        
+    }
+});
+
+
+ 
+Ext.reg('htmlpage', prdc.views.HtmlPage);

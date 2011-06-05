@@ -1,0 +1,67 @@
+prdc.App = Ext.extend(Ext.TabPanel, {
+    tabBar: {
+                dock: 'bottom',
+                layout: {
+                    pack: 'center'
+                }
+            },
+    fullscreen: true,
+	ui: 'light',
+    cardSwitchAnimation: false,
+
+	initComponent: function() {
+	       var tracks, speakers, tweets, locations, about;
+	        
+           tracks = {
+                title: 'Sessions',
+                iconCls: 'time',
+    			xtype: 'tracklist',
+    			scroll: 'vertical'
+            };
+            
+            speakers = {
+                title: 'Speakers',  
+               	xtype: 'speakerlist', 
+                scroll: 'vertical',
+                iconCls: 'user'
+            };
+            
+            locations = {
+                title: 'Location',
+                iconCls: 'locate',
+                xtype: 'location',
+                coords: this.gmapCoords,
+                mapText: this.gmapText,
+                permLink: this.gmapLink
+            };
+            
+            tweets = {
+                 title: 'Tweets',
+                 iconCls: 'team',
+                 xtype: 'tweetlist',
+                 hashtag: this.twitterSearch
+            };
+            
+            about = new Ext.Component({
+				xtype: 'htmlpage',
+                iconCls: 'info',
+                title: 'About',
+                 scroll: 'vertical',
+            });
+            
+            if (navigator.onLine) {
+	            this.items = [tracks, speakers, tweets, locations, about];	            
+    
+	        } else {
+	            this.on('render', function(){
+	                this.el.mask('No internet connection.');
+	            }, this);
+	        }
+        
+		   	prdc.cfg = {};
+			prdc.cfg.shortUrl = this.shortUrl;
+			prdc.cfg.title = this.title;
+			
+			prdc.App.superclass.initComponent.call(this);
+	},
+});
