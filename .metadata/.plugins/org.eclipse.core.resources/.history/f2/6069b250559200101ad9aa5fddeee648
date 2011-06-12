@@ -1,0 +1,32 @@
+    
+    var carousel = new Ext.Carousel({
+            defaults: {
+                cls: 'card'
+            },
+            items: [{
+              title: "Pre Conference Events 6/12/2011"
+            },
+            {
+                title: 'Day 1 6/13/2011',
+            },
+            {
+                title: 'Day 2 6/14/2011',
+            },
+            {
+            	title: 'Post Conference Workshops 6/15/2011'
+            }
+            ]
+        });
+          
+prdc.views.ScheduleList = Ext.extend(Ext.Panel, {
+    layout: 'card',
+    scroll: 'vertical',
+    initComponent: function() {	
+      
+        this.items = [carousel];
+         
+        prdc.views.ScheduleList.superclass.initComponent.call(this);
+    }
+});
+
+Ext.reg('scheduleList', prdc.views.ScheduleList);

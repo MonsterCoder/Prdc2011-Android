@@ -1,0 +1,30 @@
+    
+    var carousel = new Ext.Carousel({
+            defaults: {
+                cls: 'card'
+            },
+            items: [{
+              xtype: 'trackList'
+            },
+            {
+                title: 'Tab 2',
+                html: '2'
+            },
+            {
+                title: 'Tab 3',
+                html: '3'
+            }]
+        });
+          
+prdc.views.ScheduleList = Ext.extend(Ext.Panel, {
+    layout: 'card',
+    scroll: 'vertical',
+    initComponent: function() {	
+      
+        this.items = [carousel];
+         
+        prdc.views.ScheduleList.superclass.initComponent.call(this);
+    }
+});
+
+Ext.reg('scheduleList', prdc.views.ScheduleList);

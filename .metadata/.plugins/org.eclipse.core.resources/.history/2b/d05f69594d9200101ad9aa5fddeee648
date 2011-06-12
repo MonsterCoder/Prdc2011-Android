@@ -1,0 +1,75 @@
+prdc.views.TrackList = Ext.extend(Ext.Panel, {
+    layout: 'card',
+    scroll: 'vertical',
+    initComponent: function() {	
+        var toolbarBase = {
+            xtype: 'toolbar',
+            title: "Sessions"
+        };	
+        
+        tracklist = new Ext.List({
+         	itemTpl: '<div class="x-list-item-body"><div class="title"><strong>{key}</strong> <small>({numberOfSessions})</small></div>  <div class="icon"> </div></div>',
+            store: trackStore,
+            listeners: {
+                selectionchange: {fn: this.onSelect, scope: this}
+            }
+        });
+        
+        tracklist.on('afterrender', this.loadStore, this);
+        
+       var carousel1 = new Ext.Carousel({
+            defaults: {
+                cls: 'card'
+            },
+            items: [tracklist]
+        });
+        
+        var carousel2 = new Ext.Carousel({
+            direction: 'vertical',
+            ui: 'light',
+            activeItem: 1,
+            defaults: {
+                cls: 'card'
+            },
+            items: [{
+                title: 'Tab 1',
+                html: '<h1>ui="light"</h1>'
+            },
+            {
+                title: 'Tab 2',
+                html: '2'
+            },
+            {
+                title: 'Tab 3',
+                html: '3'
+            }]
+        });
+        
+
+        
+        this.items = [this.list];
+        
+        this.dockedItems = toolbarBase;
+        
+        prdc.views.TrackList.superclass.initComponent.call(this);
+    },
+    
+    onSelect: function(sel, records){
+        if (records[0] !== undefined) {
+            
+													            var track = new prdc.views.SessionList({
+													                prevCard: this.listpanel,
+													                record: records[0]
+													            });
+													            
+													            this.setActiveItem(track, 'slide');
+													        }		   
+     },
+     loadStore : function() {
+     	if (tracks.length === 0) {
+     		loadTrackStore(this);
+     	}
+     }
+});
+
+Ext.reg('tracklist', prdc.views.TrackList);

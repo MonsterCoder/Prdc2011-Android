@@ -1,0 +1,18 @@
+prdc.views.ScheduleList = new Ext.Carousel({
+            defaults: {
+                cls: 'card'
+            },
+            items: [{
+                html: '<h1>Carousel</h1><p>Navigate the two carousels on this page by swiping left/right or clicking on one side of the circle indicators below.</p>'
+            },
+            {
+                title: 'Tab 2',
+                html: '2'
+            },
+            {
+                title: 'Tab 3',
+                html: '3'
+            }]
+        });
+
+Ext.reg('scheduleList', prdc.views.ScheduleList);

@@ -1,0 +1,29 @@
+prdc.views.ScheduleList = Ext.extend(Ext.Panel, {
+    layout: 'card',
+    scroll: 'vertical',
+    initComponent: function() {	
+      
+        this.items = [this.list];
+         
+        prdc.views.TrackList.superclass.initComponent.call(this);
+    },
+    
+    onSelect: function(sel, records){
+        if (records[0] !== undefined) {
+            
+													            var track = new prdc.views.SessionList({
+													                prevCard: this.listpanel,
+													                record: records[0]
+													            });
+													            
+													            this.setActiveItem(track, 'slide');
+													        }		   
+     },
+     loadStore : function() {
+     	if (tracks.length === 0) {
+     		loadTrackStore(this.list);
+     	}
+     }
+});
+
+Ext.reg('scheduleList', prdc.views.ScheduleList);
